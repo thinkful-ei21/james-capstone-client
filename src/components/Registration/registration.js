@@ -36,6 +36,13 @@ class RegistrationForm extends React.Component {
                     validate={[required]}
                 />
                 <Field
+                    name="username"
+                    type="text"
+                    component={Input}
+                    label="Username"
+                    validate={[required, atLeastEight]}
+                />
+                <Field
                     name="email"
                     type="text"
                     component={Input}
