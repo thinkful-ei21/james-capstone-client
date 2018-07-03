@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import Input from './input';
+import Input from '../input';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
@@ -15,14 +15,14 @@ class RegistrationForm extends React.Component {
                 )}
             >
                 <Field
-                    name="first"
+                    name="firstName"
                     type="text"
                     component={Input}
                     label="First Name"
                     // validate={[required, nonEmpty]}
                 />
                 <Field
-                    name="last"
+                    name="lastName"
                     type="text"
                     component={Input}
                     label="Last Name"
@@ -36,6 +36,18 @@ class RegistrationForm extends React.Component {
                     // // Add an element prop to change the type of input
                     // element="select"
                     // validate={[required, nonEmpty]}
+                />
+                <Field
+                    name="password"
+                    type="password"
+                    component={Input}
+                    label="Password"
+                />
+                <Field
+                    name="confirm"
+                    type="password"
+                    component={Input}
+                    label="Confirm Password"
                 />
                 <button type="submit">Register</button>
             </form>
