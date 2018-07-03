@@ -18,9 +18,6 @@ export const moviesReducer = (state = initialState, action) => {
         };
     }
     if (action.type === FETCH_MOVIES_SUCCESS) {
-        if (!action.movies) {
-            return state;
-        }
         return {
             ...state,
             loading: false,
@@ -30,7 +27,6 @@ export const moviesReducer = (state = initialState, action) => {
     }
     if (action.type === FETCH_MOVIE_ERROR) {
         return {
-            ...state,
             loading: false,
             error: action.error
         };

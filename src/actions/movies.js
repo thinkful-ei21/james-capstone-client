@@ -22,10 +22,6 @@ export const fetchMovies = search => dispatch => {
         dispatch(fetchMoviesRequest());
         fetch(`${API_BASE_URL}/movies?title=${search}`, {
             method: 'GET'
-            // body: JSON.stringify(search),
-            // headers: {
-            //     'content-type': 'application/json'
-            // }
         })
             .then(res => {
                 if (!res.ok) {
