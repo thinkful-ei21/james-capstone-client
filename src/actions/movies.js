@@ -17,18 +17,24 @@ export const fetchMoviesError = err => ({
     err
 });
 
-export const fetchMovies = () => dispatch => {
-    dispatch(fetchMoviesRequest());
-    fetch(`${API_BASE_URL}/movies`, {
-        method: 'GET'
-    })
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res;
+export const fetchMovies = search => dispatch => {
+    if (search) {
+        dispatch(fetchMoviesRequest());
+        fetch(`${API_BASE_URL}/movies?title=${search}`, {
+            method: 'GET'
+            // body: JSON.stringify(search),
+            // headers: {
+            //     'content-type': 'application/json'
+            // }
         })
-        .then(res => res.json())
-        .then(data => dispatch(fetchMoviesSuccess(data)))
-        .catch(err => dispatch(fetchMoviesError(err)));
+            .then(res => {
+                if (!res.ok) {
+                    return Promise.reject(res.statusText);
+                }
+                return res;
+            })
+            .then(res => res.json())
+            .then(data => dispatch(fetchMoviesSuccess(data.Search)))
+            .catch(err => dispatch(fetchMoviesError(err)));
+    }
 };

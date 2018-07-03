@@ -7,6 +7,7 @@ class MovieList extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchMovies());
     }
+
     render() {
         this.movies = this.props.movies.map((movie, index) => {
             return (
