@@ -1,6 +1,13 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import Input from '../input';
+import {
+    required,
+    atLeastEight,
+    isValidEmail,
+    emailTooLong,
+    passwordsMatch
+} from './validators';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
@@ -19,14 +26,14 @@ class RegistrationForm extends React.Component {
                     type="text"
                     component={Input}
                     label="First Name"
-                    // validate={[required, nonEmpty]}
+                    validate={[required]}
                 />
                 <Field
                     name="lastName"
                     type="text"
                     component={Input}
                     label="Last Name"
-                    // validate={[required, nonEmpty]}
+                    validate={[required]}
                 />
                 <Field
                     name="email"
@@ -35,19 +42,26 @@ class RegistrationForm extends React.Component {
                     label="Email"
                     // // Add an element prop to change the type of input
                     // element="select"
-                    // validate={[required, nonEmpty]}
+                    validate={[required, isValidEmail]}
                 />
                 <Field
                     name="password"
                     type="password"
                     component={Input}
                     label="Password"
+                    validate={[required, atLeastEight, emailTooLong]}
                 />
                 <Field
-                    name="confirm"
+                    name="confirmPassword"
                     type="password"
                     component={Input}
                     label="Confirm Password"
+                    validate={[
+                        required,
+                        atLeastEight,
+                        emailTooLong,
+                        passwordsMatch
+                    ]}
                 />
                 <button type="submit">Register</button>
             </form>

@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 
 export default class App extends React.Component {
+    // let movieList = this.state.movies.length === 0 : <MovieList /> : '';
     render() {
         return (
             <section>

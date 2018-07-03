@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchMoviesRequest, fetchMovies } from '../actions/movies';
+import { fetchMovies } from '../actions/movies';
 import { connect } from 'react-redux';
 
 class Search extends React.Component {
