@@ -15,19 +15,29 @@ class RegistrationForm extends React.Component {
                 )}
             >
                 <Field
-                    name="name"
+                    name="first"
                     type="text"
                     component={Input}
-                    label="Name"
+                    label="First Name"
                     // validate={[required, nonEmpty]}
                 />
                 <Field
-                    name="name"
+                    name="last"
+                    type="text"
+                    component={Input}
+                    label="Last Name"
+                    // validate={[required, nonEmpty]}
+                />
+                <Field
+                    name="email"
                     type="text"
                     component={Input}
                     label="Email"
+                    // // Add an element prop to change the type of input
+                    // element="select"
                     // validate={[required, nonEmpty]}
                 />
+                <button type="submit">Register</button>
             </form>
         );
     }
