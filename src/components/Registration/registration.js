@@ -8,10 +8,15 @@ import {
     emailTooLong,
     passwordsMatch
 } from './validators';
+import { registerUser } from '../../actions/users';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
-        console.log(values);
+        const { username, password, firstName, lastName, email } = values;
+        const user = { username, password, firstName, lastName, email };
+        return this.props
+            .dispatch(registerUser())
+            .then(() => this.props.dispatch(login(username, password)));
     }
 
     render() {
