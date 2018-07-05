@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchMovies } from '../actions/movies';
 import { connect } from 'react-redux';
+import requiresLogin from './requires-login';
 
 class Search extends React.Component {
     onSubmit(event) {
@@ -46,4 +47,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Search);
+export default requiresLogin()(connect(mapStateToProps)(Search));

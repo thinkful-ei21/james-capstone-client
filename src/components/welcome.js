@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 export default class Welcome extends React.Component {
     render() {
         return (
-            <nav>
-                <ul>
-                    <Link to="/register">Register</Link>
-                </ul>
-            </nav>
+            <section>
+                <p>Don't have an account yet?</p>
+                <Link to="/register">
+                    <button>Sign Up</button>
+                </Link>
+            </section>
         );
     }
 }

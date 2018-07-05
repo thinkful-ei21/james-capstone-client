@@ -1,29 +1,31 @@
+import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
-export const REGISTER_USER_REQUEST = 'REGISTER_USER_REQUEST';
-export const registerUserRequest = () => ({
-    type: REGISTER_USER_REQUEST
-});
+// export const REGISTER_USER_REQUEST = 'REGISTER_USER_REQUEST';
+// export const registerUserRequest = () => ({
+//     type: REGISTER_USER_REQUEST
+// });
 
-export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
-export const registerUserSuccess = () => ({
-    type: REGISTER_USER_SUCCESS
-});
+// export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
+// export const registerUserSuccess = () => ({
+//     type: REGISTER_USER_SUCCESS
+// });
 
-export const REGISTER_USER_ERROR = 'REGISTER_USER_ERROR';
-export const registerUserError = err => ({
-    type: REGISTER_USER_ERROR,
-    err
-});
+// export const REGISTER_USER_ERROR = 'REGISTER_USER_ERROR';
+// export const registerUserError = err => ({
+//     type: REGISTER_USER_ERROR,
+//     err
+// });
 
-export const registerUser = userData => dispatch => {
+export const registerUser = user => dispatch => {
     // dispatch(registerUser());
     fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(userData)
+        body: JSON.stringify(user)
     })
         .then(res => {
             if (!res.ok) {
@@ -31,9 +33,16 @@ export const registerUser = userData => dispatch => {
             }
             return res;
         })
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-
-        //pass in data to registerUserSuccess possibly?
-        .then(data => dispatch(registerUserSuccess(data)))
-        .catch(err => dispatch(registerUserError(err)));
+        .catch(err => {
+            const { reason, message, location } = err;
+            if (reason === 'ValidationError') {
+                return Promise.reject(
+                    new SubmissionError({
+                        [location]: message
+                    })
+                );
+            }
+        });
 };
