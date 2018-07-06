@@ -1,6 +1,7 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
+import { login } from './auth';
 
 // export const REGISTER_USER_REQUEST = 'REGISTER_USER_REQUEST';
 // export const registerUserRequest = () => ({
@@ -20,7 +21,7 @@ import { normalizeResponseErrors } from './utils';
 
 export const registerUser = user => dispatch => {
     // dispatch(registerUser());
-    fetch(`${API_BASE_URL}/users`, {
+    return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -35,6 +36,7 @@ export const registerUser = user => dispatch => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
+        .then(() => dispatch(login(user.username, user.password)))
         .catch(err => {
             const { reason, message, location } = err;
             if (reason === 'ValidationError') {

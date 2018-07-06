@@ -1,12 +1,12 @@
 import React from 'react';
 import MovieList from './movie-list';
-import Search from './search';
 import RegistrationForm from './Registration/registration';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { refreshAuthToken } from '../actions/auth';
 import LoginForm from './login';
+import Dashboard from './dashboard';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -48,7 +48,7 @@ export class App extends React.Component {
                             path="/register"
                             component={RegistrationForm}
                         />
-                        <Route path="/search" component={Search} />
+                        <Route path="/dashboard" component={Dashboard} />
                     </div>
                 </Router>
                 <MovieList />

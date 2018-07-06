@@ -7,7 +7,6 @@ class Search extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         const searchTerm = event.target.search.value;
-        console.log(searchTerm);
         if (searchTerm) {
             this.props.dispatch(fetchMovies(searchTerm));
         }
@@ -47,4 +46,5 @@ const mapStateToProps = state => {
     };
 };
 
+// export default requiresLogin()(connect(mapStateToProps)(Search));
 export default requiresLogin()(connect(mapStateToProps)(Search));

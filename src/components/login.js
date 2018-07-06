@@ -2,28 +2,33 @@ import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
 import { login } from '../actions/auth';
+import { connect } from 'react-redux';
 import Welcome from './welcome';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
-        console.log('login button clicked');
-        this.props.dispatch(login(values.username, values.password));
+        this.props
+            .dispatch(login(values.username, values.password))
+            .then(() => this.props.history.push('/dashboard'));
     }
 
     render() {
+        let error;
+        if (this.props.error) {
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.error}
+                </div>
+            );
+        }
+
         return (
             <div>
                 <form
                     className="login-form"
-                    onSubmit={this.props.handleSubmit(values =>
-                        this.onSubmit(values)
-                    )}
+                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
-                    {/* <label htmlFor="username">Username</label>
-                <input type="text" name="username" />
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" />
-                <button type="submit">Log in</button> */}
+                    {error}
                     <label htmlFor="username">Username</label>
                     <Field
                         component={Input}
@@ -40,9 +45,7 @@ export class LoginForm extends React.Component {
                         id="password"
                         // validate={[required, nonEmpty]}
                     />
-                    <button
-                        disabled={this.props.pristine || this.props.submitting}
-                    >
+                    <button disabled={this.props.pristine || this.props.submitting}>
                         Log in
                     </button>
                 </form>
@@ -52,7 +55,13 @@ export class LoginForm extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {};
+const mapStateToProps = state => {
+    return {
+        error: state.auth.error
+    };
+};
+
+LoginForm = connect(mapStateToProps)(LoginForm);
 
 export default reduxForm({
     form: 'login',

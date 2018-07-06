@@ -37,13 +37,12 @@ export const authError = err => ({
 // the user data stored in the token
 const storeAuthTokenInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
-    dispatch(setAuthToken);
+    dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
-
-export const login = (username, password) => dispatch => {
-    console.log('got here');
+// passing in history from this.props.history
+export const login = (username, password, history) => dispatch => {
     dispatch(authRequest());
     // used to be /auth/login
     return fetch(`${API_BASE_URL}/login`, {
@@ -58,22 +57,22 @@ export const login = (username, password) => dispatch => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => {
-            console.log(res);
             return res.json();
         })
         .then(({ authToken }) => storeAuthTokenInfo(authToken, dispatch))
         .catch(err => {
-            const { code } = err;
+            const { status } = err;
             const message =
-                code === 401
+                status === 401
                     ? 'Incorrect username or password'
                     : 'Unable to login, please try again';
-            dispatch(authError());
-            return Promise.reject(
-                new SubmissionError({
-                    _error: message
-                })
-            );
+            console.log(message);
+            dispatch(authError(message));
+            // return Promise.reject(
+            //     new SubmissionError({
+            //         _error: message
+            //     })
+            // );
         });
 };
 
