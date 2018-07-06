@@ -8,12 +8,19 @@ class MovieList extends React.Component {
         this.props.dispatch(fetchMovies());
     }
 
+    addMovie() {
+        console.log('add button clicked');
+    }
+
     render() {
         this.movies = this.props.movies.map((movie, index) => {
             return (
                 <div className="movie-item" key={index}>
                     <li>{movie.Title}</li>
                     <img src={movie.Poster} alt="" />
+                    <button className="add-movie" onClick={() => this.addMovie()}>
+                        Add movie to List
+                    </button>
                 </div>
             );
         });
