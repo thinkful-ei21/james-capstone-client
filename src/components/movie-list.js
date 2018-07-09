@@ -29,7 +29,8 @@ class MovieList extends React.Component {
 }
 const mapStateToProps = state => {
     return {
-        movies: state.movies.movies
+        movies: state.movies.movies,
+        error: state.movies.error
     };
 };
 

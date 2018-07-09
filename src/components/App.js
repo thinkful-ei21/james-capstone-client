@@ -43,15 +43,10 @@ export class App extends React.Component {
                 <Router>
                     <div>
                         <Route exact path="/" component={LoginForm} />
-                        <Route
-                            exact
-                            path="/register"
-                            component={RegistrationForm}
-                        />
+                        <Route exact path="/register" component={RegistrationForm} />
                         <Route path="/dashboard" component={Dashboard} />
                     </div>
                 </Router>
-                <MovieList />
             </section>
         );
     }

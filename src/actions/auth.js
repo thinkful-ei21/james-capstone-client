@@ -66,7 +66,6 @@ export const login = (username, password, history) => dispatch => {
                 status === 401
                     ? 'Incorrect username or password'
                     : 'Unable to login, please try again';
-            console.log(message);
             dispatch(authError(message));
             // return Promise.reject(
             //     new SubmissionError({
@@ -78,7 +77,6 @@ export const login = (username, password, history) => dispatch => {
 
 export const refreshAuthToken = (dispatch, getState) => {
     dispatch(authRequest());
-    console.log('authRequest');
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/auth/refresh`, {
         method: 'POST',

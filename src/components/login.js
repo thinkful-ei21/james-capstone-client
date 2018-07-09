@@ -8,7 +8,7 @@ import Welcome from './welcome';
 export class LoginForm extends React.Component {
     onSubmit(values) {
         this.props
-            .dispatch(login(values.username, values.password))
+            .dispatch(login(values.username.toLowerCase(), values.password))
             .then(() => this.props.history.push('/dashboard'));
     }
 

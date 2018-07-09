@@ -13,10 +13,8 @@ import { registerUser } from '../../actions/users';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
-        console.log(this.props);
         const { username, password, firstName, lastName, email } = values;
         const user = { username, password, firstName, lastName, email };
-        console.log(username);
         return (
             this.props
                 .dispatch(registerUser(user))
@@ -27,11 +25,7 @@ class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <form
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}
-            >
+            <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 <Field
                     name="firstName"
                     type="text"
@@ -74,12 +68,7 @@ class RegistrationForm extends React.Component {
                     type="password"
                     component={Input}
                     label="Confirm Password"
-                    validate={[
-                        required,
-                        atLeastEight,
-                        emailTooLong,
-                        passwordsMatch
-                    ]}
+                    validate={[required, atLeastEight, emailTooLong, passwordsMatch]}
                 />
                 <button type="submit">Register</button>
             </form>

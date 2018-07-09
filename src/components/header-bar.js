@@ -5,7 +5,6 @@ import { clearAuthToken } from '../local-storage.js';
 
 class HeaderBar extends React.Component {
     logOut() {
-        console.log('log out button clicked');
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
@@ -14,9 +13,7 @@ class HeaderBar extends React.Component {
         // Only renders the log out button if we're logged in
         let logOutButton;
         if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log Out</button>
-            );
+            logOutButton = <button onClick={() => this.logOut()}>Log Out</button>;
         }
 
         return (

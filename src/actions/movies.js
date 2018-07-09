@@ -20,7 +20,7 @@ export const fetchMoviesError = err => ({
 export const fetchMovies = search => dispatch => {
     if (search) {
         dispatch(fetchMoviesRequest());
-        return fetch(`${API_BASE_URL}/movies?title=${search}`, {
+        return fetch(`${API_BASE_URL}/search?title=${search}`, {
             method: 'GET'
         })
             .then(res => {
