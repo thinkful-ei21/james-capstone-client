@@ -1,5 +1,4 @@
 import React from 'react';
-import MovieList from './movie-list';
 import RegistrationForm from './Registration/registration';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';

@@ -7,9 +7,9 @@ export const addMovieRequest = () => ({
 });
 
 export const ADD_MOVIE_SUCCESS = 'ADD_MOVIE_SUCCESS';
-export const addMovieSuccess = movie => ({
+export const addMovieSuccess = movieId => ({
     type: ADD_MOVIE_SUCCESS,
-    movie
+    movieId
 });
 
 export const ADD_MOVIE_ERROR = 'ADD_MOVIE_ERROR';
@@ -18,9 +18,26 @@ export const addMovieError = err => ({
     err
 });
 
-export const addMovie = () => dispatch => {
+export const addMovie = (movieId, listId) => (dispatch, getState) => {
     dispatch(addMovieRequest());
-    return fetch();
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/lists`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify({
+            movieId,
+            listId
+        })
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(data => {
+            dispatch(addMovieSuccess(movieId));
+        })
+        .catch(err => dispatch(addMovieError(err)));
 };
 
 export const CREATE_LIST_REQUEST = 'CREATE_LIST_REQUEST';
@@ -42,7 +59,6 @@ export const createListError = err => ({
 
 export const createList = title => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    console.log(authToken);
     dispatch(createListRequest());
     return fetch(`${API_BASE_URL}/lists`, {
         method: 'POST',

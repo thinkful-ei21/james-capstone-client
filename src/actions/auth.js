@@ -81,7 +81,7 @@ export const refreshAuthToken = (dispatch, getState) => {
     return fetch(`${API_BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
-            Authorization: `Bearer: ${authToken}`
+            Authorization: `Bearer ${authToken}`
         }
     })
         .then(res => normalizeResponseErrors(res))

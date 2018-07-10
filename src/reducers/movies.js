@@ -43,29 +43,6 @@ export const moviesReducer = (state = initialState, action) => {
             movies: []
         };
     }
-    if (action.type === ADD_MOVIE_REQUEST) {
-        return {
-            ...state,
-            loading: true,
-            movies: [...state.movies]
-        };
-    }
-    if (action.type === ADD_MOVIE_SUCCESS) {
-        return {
-            ...state,
-            loading: false,
-            error: null,
-            movies: [...state.movies, action.movie]
-        };
-    }
-    if (action.type === ADD_MOVIE_ERROR) {
-        return {
-            ...state,
-            loading: false,
-            error: action.err,
-            movies: [...state.movies]
-        };
-    }
     if (action.type === CREATE_LIST_REQUEST) {
         return {
             ...state,

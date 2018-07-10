@@ -8,7 +8,6 @@ import {
     emailTooLong,
     passwordsMatch
 } from './validators';
-import { login } from '../../actions/auth';
 import { registerUser } from '../../actions/users';
 
 class RegistrationForm extends React.Component {
@@ -18,6 +17,7 @@ class RegistrationForm extends React.Component {
         return (
             this.props
                 .dispatch(registerUser(user))
+
                 // this.props.dispatch(login(username, password));
                 .then(() => this.props.history.push('/dashboard'))
         );

@@ -13,18 +13,6 @@ class Search extends React.Component {
         event.target.reset();
     }
 
-    // search(event) {
-    //     event.preventDefault();
-    //     const searchTerm = event.target.value;
-    //     console.log(searchTerm);
-    //     if (searchTerm) {
-    //         this.props.dispatch(fetchMovies(searchTerm));
-    //     }
-    // }
-
-    // onChange={e => this.search(e)
-    // onSubmit={e => this.onSubmit(e)}
-
     render() {
         return (
             <form onSubmit={e => this.onSubmit(e)}>
@@ -35,6 +23,7 @@ class Search extends React.Component {
                     placeholder="Which movie are you searching for?"
                 />
                 <button type="submit">Submit</button>
+                <button onClick={() => this.clearSearch()}>Clear</button>
             </form>
         );
     }
@@ -46,5 +35,4 @@ const mapStateToProps = state => {
     };
 };
 
-// export default requiresLogin()(connect(mapStateToProps)(Search));
 export default requiresLogin()(connect(mapStateToProps)(Search));

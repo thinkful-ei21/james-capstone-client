@@ -18,7 +18,6 @@ class Lists extends React.Component {
         const lists = this.props.lists.map((list, index) => {
             return <li key={index}>{list.title}</li>;
         });
-        console.log(this.props.lists);
 
         return (
             <div className="list-input">
