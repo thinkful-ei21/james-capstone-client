@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createList } from '../actions/add';
+import requiresLogin from './requires-login';
+import HeaderBar from './header-bar';
 import '../styles/lists.css';
 import { fetchProtectedData } from '../actions/protected-data';
 
@@ -13,21 +15,24 @@ class Lists extends React.Component {
     }
 
     render() {
-        console.log(this.props.lists);
         const lists = this.props.lists.map((list, index) => {
+            console.log(list.title, list.movies);
             return <li key={index}>{list.title}</li>;
         });
 
         return (
-            <div className="list-input">
-                <form onSubmit={e => this.submitList(e)}>
-                    <label htmlFor="">Create list:</label>
-                    <input type="text" name="newList" />
-                    <button>Create</button>
-                </form>
-                <p>Lists</p>
-                <ul className="movie-lists">{lists}</ul>
-            </div>
+            <section>
+                <HeaderBar />
+                <div className="list-input">
+                    <form onSubmit={e => this.submitList(e)}>
+                        <label htmlFor="">Create list:</label>
+                        <input type="text" name="newList" />
+                        <button>Create</button>
+                    </form>
+                    <p>Lists</p>
+                    <ul className="movie-lists">{lists}</ul>
+                </div>
+            </section>
         );
     }
 }

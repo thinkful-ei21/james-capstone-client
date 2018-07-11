@@ -20,6 +20,7 @@ const initialState = {
 };
 
 export const moviesReducer = (state = initialState, action) => {
+    // console.log(state, action);
     if (action.type === FETCH_MOVIES_REQUEST) {
         return {
             ...state,

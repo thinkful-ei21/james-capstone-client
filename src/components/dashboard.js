@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import HeaderBar from './header-bar';
 import Search from './search';
 import SearchResult from './search-result';
-import Lists from './lists';
 import { fetchProtectedData } from '../actions/protected-data';
 
 class Dashboard extends React.Component {
@@ -16,7 +15,6 @@ class Dashboard extends React.Component {
         return (
             <section>
                 <HeaderBar />
-                <Lists />
                 <Search />
                 <SearchResult />
             </section>

@@ -5,6 +5,7 @@ import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { refreshAuthToken } from '../actions/auth';
 import LoginForm from './login';
+import Lists from './lists';
 import Dashboard from './dashboard';
 
 export class App extends React.Component {
@@ -44,6 +45,7 @@ export class App extends React.Component {
                         <Route exact path="/" component={LoginForm} />
                         <Route exact path="/register" component={RegistrationForm} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route exact path="/lists" component={Lists} />
                     </div>
                 </Router>
             </section>
