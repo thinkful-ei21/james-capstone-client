@@ -7,6 +7,8 @@ import { refreshAuthToken } from '../actions/auth';
 import LoginForm from './login';
 import Lists from './lists';
 import Dashboard from './dashboard';
+import headerBar from './header-bar';
+import expandedList from './expanded-list';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -45,7 +47,9 @@ export class App extends React.Component {
                         <Route exact path="/" component={LoginForm} />
                         <Route exact path="/register" component={RegistrationForm} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/lists" component={headerBar} />
                         <Route exact path="/lists" component={Lists} />
+                        <Route exact path="/lists/:id" component={expandedList} />
                     </div>
                 </Router>
             </section>

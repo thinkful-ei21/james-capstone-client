@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
-import requiresLogin from './requires-login';
-import HeaderBar from './header-bar';
 import '../styles/lists.css';
 import { fetchProtectedData } from '../actions/protected-data';
 
@@ -16,13 +15,26 @@ class Lists extends React.Component {
 
     render() {
         const lists = this.props.lists.map((list, index) => {
-            console.log(list.title, list.movies);
-            return <li key={index}>{list.title}</li>;
+            // const movies = list.movies;
+
+            // const movieTitles = movies.forEach(movie => {
+            //     return movie.title;
+            // });
+
+            // path="/lists/:id"
+
+            // this.props.match.params.id
+
+            const link = 'lists/' + list.id;
+            return (
+                <Link to={link} key={index}>
+                    <button key={index}>{list.title}</button>
+                </Link>
+            );
         });
 
         return (
             <section>
-                <HeaderBar />
                 <div className="list-input">
                     <form onSubmit={e => this.submitList(e)}>
                         <label htmlFor="">Create list:</label>

@@ -29,3 +29,36 @@ export const fetchProtectedData = () => (dispatch, getState) => {
         })
         .catch(err => dispatch(fetchProtectedDataError(err)));
 };
+
+export const FETCH_CURRENT_LIST_SUCCESS = 'FETCH_CURRENT_LIST_SUCCESS';
+export const fetchCurrentListSuccess = moviesList => ({
+    type: FETCH_CURRENT_LIST_SUCCESS,
+    moviesList
+});
+
+export const FETCH_CURRENT_LIST_ERROR = 'FETCH_CURRENT_LIST_ERROR';
+export const fetchCurrentListError = err => ({
+    type: FETCH_CURRENT_LIST_ERROR,
+    err
+});
+
+export const fetchCurrentList = listId => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/lists/${listId}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(list => {
+            // console.log(list);
+            // console.log(list[0].movies);
+            const moviesList = list.movies;
+            console.log(moviesList);
+            dispatch(fetchCurrentListSuccess(moviesList));
+        })
+        .catch(err => dispatch(fetchCurrentListError(err)));
+};
