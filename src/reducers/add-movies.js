@@ -19,7 +19,7 @@ export const addMovieReducer = (state = initialState, action) => {
             ...state,
             loading: false,
             error: null,
-            listMovies: [...state.listMovies, action.movieId]
+            listMovies: [...state.listMovies, action.title]
         };
     }
     if (action.type === ADD_MOVIE_ERROR) {

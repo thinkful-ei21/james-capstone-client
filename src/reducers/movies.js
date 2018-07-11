@@ -5,13 +5,11 @@ import {
 } from '../actions/movies';
 
 import {
-    ADD_MOVIE_REQUEST,
-    ADD_MOVIE_SUCCESS,
-    ADD_MOVIE_ERROR,
     CREATE_LIST_REQUEST,
     CREATE_LIST_SUCCESS,
     CREATE_LIST_ERROR
 } from '../actions/add';
+import { CLEAR_SEARCH_STATE } from '../actions/search';
 
 const initialState = {
     lists: [],
@@ -38,8 +36,15 @@ export const moviesReducer = (state = initialState, action) => {
     }
     if (action.type === FETCH_MOVIE_ERROR) {
         return {
+            ...state,
             loading: false,
             error: action.err,
+            movies: []
+        };
+    }
+    if (action.type === CLEAR_SEARCH_STATE) {
+        return {
+            ...state,
             movies: []
         };
     }

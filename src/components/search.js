@@ -13,6 +13,10 @@ class Search extends React.Component {
         event.target.reset();
     }
 
+    // onClear() {
+    //     console.log('cleared');
+    // }
+
     render() {
         return (
             <form onSubmit={e => this.onSubmit(e)}>
@@ -23,7 +27,7 @@ class Search extends React.Component {
                     placeholder="Which movie are you searching for?"
                 />
                 <button type="submit">Submit</button>
-                <button onClick={() => this.clearSearch()}>Clear</button>
+                {/* <button onClick={() => this.onClear()}>Clear</button> */}
             </form>
         );
     }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import HeaderBar from './header-bar';
 import Search from './search';
-import MovieList from './movie-list';
+import SearchResult from './search-result';
 import Lists from './lists';
 import { fetchProtectedData } from '../actions/protected-data';
 
@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
                 <HeaderBar />
                 <Lists />
                 <Search />
-                <MovieList />
+                <SearchResult />
             </section>
         );
     }

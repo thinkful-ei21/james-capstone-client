@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createList } from '../actions/add';
-import movieList from './movie-list';
 import '../styles/lists.css';
-import { fetchMoviesSuccess } from '../actions/movies';
 import { fetchProtectedData } from '../actions/protected-data';
 
 class Lists extends React.Component {
@@ -15,6 +13,7 @@ class Lists extends React.Component {
     }
 
     render() {
+        console.log(this.props.lists);
         const lists = this.props.lists.map((list, index) => {
             return <li key={index}>{list.title}</li>;
         });

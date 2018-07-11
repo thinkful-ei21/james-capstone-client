@@ -1,0 +1,17 @@
+Notable errors:
+
+
+TO DO:
+-- Add an expanded movie-view component
+    -reducers
+    - actions
+-- Add filter component and functions
+-- Search should not be seen when not searching
+
+    
+
+Wish list:
+-- functionality for searching by other data such as actor or director
+    - Might have to add a new type of search query.
+-- add upvote and downvote functionality to movies in lists.
+-- add trailer to expanded single movie view.
