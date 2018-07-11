@@ -11,7 +11,6 @@ const initialState = {
 };
 
 export const protectedDataReducer = (state = initialState, action) => {
-    console.log(action, state);
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return {
             ...state,
