@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export const addMovieReducer = (state = initialState, action) => {
+    console.log(listMovies);
     if (action.type === ADD_MOVIE_REQUEST) {
         return {
             ...state,

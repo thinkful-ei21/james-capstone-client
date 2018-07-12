@@ -9,19 +9,37 @@ class ExpandedList extends React.Component {
 
     fetchMoviesFromList() {
         const listId = this.props.match.params.id;
-        console.log(listId);
         this.props.dispatch(fetchCurrentList(listId));
     }
 
     render() {
-        return <p>List title</p>;
+        const movieList = this.props.movies;
+
+        const movies = movieList.map(movie => {
+            return (
+                <li>
+                    {movie.title}
+                    <div>{movie.year}</div>
+                    <div>
+                        <img src={movie.poster} />
+                    </div>
+                </li>
+            );
+        });
+        return (
+            <main>
+                <h1>{this.props.title}</h1>
+                <ul>{movies}</ul>
+            </main>
+        );
     }
 }
 
 const mapStateToProps = state => {
     return {
         lists: state.listData.data,
-        movies: state.listData.currentList
+        movies: state.listData.currentList,
+        title: state.listData.title
     };
 };
 

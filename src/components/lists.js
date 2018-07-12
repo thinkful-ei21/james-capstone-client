@@ -27,7 +27,7 @@ class Lists extends React.Component {
 
             const link = 'lists/' + list.id;
             return (
-                <Link to={link} key={index}>
+                <Link to={link} key={index} name={list.title}>
                     <button key={index}>{list.title}</button>
                 </Link>
             );

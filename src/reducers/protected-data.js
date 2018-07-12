@@ -7,14 +7,16 @@ import {
 const initialState = {
     data: [],
     error: null,
-    currentList: []
+    currentList: [],
+    title: ''
 };
 
 export const protectedDataReducer = (state = initialState, action) => {
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return {
             ...state,
-            data: action.data
+            data: action.data,
+            title: action.title
         };
     }
     if (action.type === FETCH_PROTECTED_DATA_ERROR) {
@@ -26,7 +28,8 @@ export const protectedDataReducer = (state = initialState, action) => {
     if (action.type === FETCH_CURRENT_LIST_SUCCESS) {
         return {
             ...state,
-            currentList: action.moviesList
+            currentList: action.moviesList,
+            title: action.title
         };
     }
     return state;

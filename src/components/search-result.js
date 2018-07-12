@@ -8,14 +8,14 @@ import { clearSearchState } from '../actions/search';
 class SearchResult extends React.Component {
     addMovie(e, movie) {
         e.preventDefault();
-        console.log(movie);
         const movieId = movie.imdbID;
         const listId = e.target.listOption.value;
         const year = movie.Year;
         const title = movie.Title;
+        const poster = movie.Poster;
         // Here you're going to dispatch the function
         // that adds the movie to the list.
-        this.props.dispatch(addMovie(movieId, listId, year, title));
+        this.props.dispatch(addMovie(movieId, listId, year, title, poster));
     }
 
     clearSearch() {

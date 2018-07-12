@@ -18,7 +18,10 @@ export const addMovieError = err => ({
     err
 });
 
-export const addMovie = (movieId, listId, year, title) => (dispatch, getState) => {
+export const addMovie = (movieId, listId, year, title, poster) => (
+    dispatch,
+    getState
+) => {
     dispatch(addMovieRequest());
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/lists`, {
@@ -31,13 +34,14 @@ export const addMovie = (movieId, listId, year, title) => (dispatch, getState) =
             movieId,
             listId,
             year,
-            title
+            title,
+            poster
         })
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(data => {
-            dispatch(addMovieSuccess(movieId, listId, year, title));
+            dispatch(addMovieSuccess(movieId, listId, year, title, poster));
         })
         .catch(err => dispatch(addMovieError(err)));
 };

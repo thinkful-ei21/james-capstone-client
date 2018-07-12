@@ -31,9 +31,10 @@ export const fetchProtectedData = () => (dispatch, getState) => {
 };
 
 export const FETCH_CURRENT_LIST_SUCCESS = 'FETCH_CURRENT_LIST_SUCCESS';
-export const fetchCurrentListSuccess = moviesList => ({
+export const fetchCurrentListSuccess = (moviesList, title) => ({
     type: FETCH_CURRENT_LIST_SUCCESS,
-    moviesList
+    moviesList,
+    title
 });
 
 export const FETCH_CURRENT_LIST_ERROR = 'FETCH_CURRENT_LIST_ERROR';
@@ -54,11 +55,9 @@ export const fetchCurrentList = listId => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(list => {
-            // console.log(list);
-            // console.log(list[0].movies);
+            const title = list.title;
             const moviesList = list.movies;
-            console.log(moviesList);
-            dispatch(fetchCurrentListSuccess(moviesList));
+            dispatch(fetchCurrentListSuccess(moviesList, title));
         })
         .catch(err => dispatch(fetchCurrentListError(err)));
 };
