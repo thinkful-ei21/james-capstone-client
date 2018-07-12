@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage.js';
+import '../styles/header-bar.css';
 
 class HeaderBar extends React.Component {
     logOut() {
@@ -22,16 +23,20 @@ class HeaderBar extends React.Component {
         }
 
         return (
-            <div className="header-bar">
-                <h1>Welcome to Moviesurfer!</h1>
-                <Link to="/dashboard">
-                    <button>Dashboard</button>
-                </Link>
-                <Link to="/lists">
-                    <button>Lists</button>
-                </Link>
-                {logOutButton}
-            </div>
+            <nav className="header-bar">
+                <ul>
+                    <li className="button">
+                        <Link to="/dashboard">Dashboard</Link>
+                    </li>
+                    <li className="button">
+                        <Link to="/lists">Lists</Link>
+                    </li>
+                    <li className="title">
+                        <h1>Welcome to Moviesurfer!</h1>
+                    </li>
+                    <li className="button">{logOutButton}</li>
+                </ul>
+            </nav>
         );
     }
 }

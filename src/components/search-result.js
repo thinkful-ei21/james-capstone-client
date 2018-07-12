@@ -18,6 +18,10 @@ class SearchResult extends React.Component {
         this.props.dispatch(addMovie(movieId, listId, year, title, poster));
     }
 
+    componentWillUnmount() {
+        this.props.dispatch(clearSearchState());
+    }
+
     clearSearch() {
         this.props.dispatch(clearSearchState());
     }

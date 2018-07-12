@@ -1,0 +1,29 @@
+ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+.login {
+    margin: 0 15px;
+}
+
+.login-inputs:last-child {
+    float: right;
+}
+/* 
+section {
+    background-color: #223d4e;
+    color: rgb(211, 217, 219);
+} */
+
+.form-container {
+    background-color: #455a64;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+}
+
+
+
+
+

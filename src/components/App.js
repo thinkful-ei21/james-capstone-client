@@ -10,34 +10,35 @@ import Dashboard from './dashboard';
 import headerBar from './header-bar';
 import expandedList from './expanded-list';
 
-export class App extends React.Component {
-    componentDidUpdate(prevProps) {
-        if (!prevProps.loggedIn && this.props.loggedIn) {
-            this.startPeriodicRefresh();
-        }
-        if (prevProps.loggedIn && !this.props.loggedIn) {
-            this.stopPeriodicRefresh();
-        }
-    }
+class App extends React.Component {
+    // componentDidUpdate(prevProps) {
+    //     if (!prevProps.loggedIn && this.props.loggedIn) {
+    //         this.startPeriodicRefresh();
+    //     }
+    //     if (prevProps.loggedIn && !this.props.loggedIn) {
+    //         this.stopPeriodicRefresh();
+    //     }
+    // }
 
-    componentWillMount() {
-        this.stopPeriodicRefresh();
-    }
+    // componentWillMount() {
+    //     console.log('starting now');
+    //     this.stopPeriodicRefresh();
+    // }
 
-    startPeriodicRefresh() {
-        this.refreshInterval = setInterval(
-            () => this.props.dispatch(refreshAuthToken()),
-            15 * 60 * 1000
-        );
-    }
+    // startPeriodicRefresh() {
+    //     this.refreshInterval = setInterval(
+    //         () => this.props.dispatch(refreshAuthToken()),
+    //         1 * 60 * 1000
+    //     );
+    // }
 
-    stopPeriodicRefresh() {
-        if (!this.refreshInterval) {
-            return;
-        }
+    // stopPeriodicRefresh() {
+    //     if (!this.refreshInterval) {
+    //         return;
+    //     }
 
-        clearInterval(this.refreshInterval);
-    }
+    //     clearInterval(this.refreshInterval);
+    // }
 
     render() {
         return (
