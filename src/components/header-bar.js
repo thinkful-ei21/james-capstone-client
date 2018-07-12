@@ -23,7 +23,7 @@ class HeaderBar extends React.Component {
 
         return (
             <div className="header-bar">
-                <h1>Welcome to Moviesufer!</h1>
+                <h1>Welcome to Moviesurfer!</h1>
                 <Link to="/dashboard">
                     <button>Dashboard</button>
                 </Link>
