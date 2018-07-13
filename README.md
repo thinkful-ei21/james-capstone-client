@@ -14,4 +14,10 @@ https://james-moviesurfer-client.herokuapp.com/
 ## Screenshots of the app:
 
 ### Login:
-![Login] (images/Login.pgn)
+![Login](images/Login.png)
+
+### Search Results:
+![Search Results](images/search.png)
+
+### List View:
+![List View](images/listview.png)
