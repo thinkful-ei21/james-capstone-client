@@ -15,9 +15,9 @@ export class LoginForm extends React.Component {
 
     componentDidMount() {
         // keep an eye on this, it might break
-        if (this.props.hasAuthToken) {
-            this.props.history.push('/dashboard');
-        }
+        // if (this.props.hasAuthToken) {
+        //     this.props.history.push('/dashboard');
+        // }
     }
 
     render() {
