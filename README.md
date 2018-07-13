@@ -28,10 +28,10 @@ https://github.com/thinkful-ei21/james-capstone-server
 ## Tech Stack:
 
     Client: 
-    -React 
-    -Redux for state management
-    -Redux form for validation
-    -jwt for client validation
+    *React 
+    *Redux for state management
+    *Redux form for validation
+    *jwt for client validation
 
     Server:
     -Express and Node.js
