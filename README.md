@@ -11,3 +11,7 @@ to create lists of media such as TV shows, movies or video games.
 ## Link to the live version:
 https://james-moviesurfer-client.herokuapp.com/
 
+## Screenshots of the app:
+
+### Login:
+![Login] (images/Login.pgn)
