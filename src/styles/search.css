@@ -26,3 +26,7 @@ div button {
     text-align: center;
     font-family: 'Barlow Condensed', sans-serif;
 }
+
+.search-form label {
+    font-size: 35px;
+}

@@ -5,6 +5,7 @@ import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 import Welcome from './welcome';
 import '../styles/login.css';
+import Onboarding from './onboarding';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -72,6 +73,7 @@ export class LoginForm extends React.Component {
                     </ul>
                 </form>
                 <Welcome />
+                <Onboarding />
             </div>
         );
     }
