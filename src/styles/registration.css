@@ -4,9 +4,9 @@
     background: white;
     text-align: center;
     vertical-align: middle;
-    border: 1px solid gray;
-    border-radius: 2px;
-    box-shadow: 5px 10px 10px #888888;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 10px 10px rgb(95, 86, 86);
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -32,6 +32,6 @@
 .reg-box {
     display: flex;
     justify-content: center;
-    background: #d3dad8;
+    background: #112935;
 }
 /* .registration-form > input  */
