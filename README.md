@@ -21,3 +21,16 @@ https://james-moviesurfer-client.herokuapp.com/
 
 ### List View:
 ![List View](images/listview.png)
+
+## Tech Stack:
+
+    Client: 
+    -React 
+    -Redux for state management
+    -Redux form for validation
+
+    Server:
+    -Express and Node.js
+    -MongoDB for database
+
+## Key parts of the app
