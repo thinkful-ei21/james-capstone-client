@@ -18,11 +18,6 @@ class App extends React.Component {
         if (prevProps.loggedIn && !this.props.loggedIn) {
             this.stopPeriodicRefresh();
         }
-        // console.log('redirecting');
-        // console.log(this.props.loggedIn);
-        // if (this.props.hasAuthToken) {
-        //     <Redirect to="/dashboard" />;
-        // }
     }
 
     componentWillMount() {

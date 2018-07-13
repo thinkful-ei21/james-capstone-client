@@ -87,7 +87,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
         .then(res => res.json())
         .then(({ authToken }) => storeAuthTokenInfo(authToken, dispatch))
         .catch(err => {
-            console.log(err);
             dispatch(authError(err));
             dispatch(clearAuth());
             clearAuthToken(authToken);
