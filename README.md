@@ -11,6 +11,9 @@ to create lists of media such as TV shows, movies or video games.
 ## Link to the live version:
 https://james-moviesurfer-client.herokuapp.com/
 
+## Link to the database repo:
+https://github.com/thinkful-ei21/james-capstone-server
+
 ## Screenshots of the app:
 
 ### Login:
@@ -34,3 +37,11 @@ https://james-moviesurfer-client.herokuapp.com/
     -MongoDB for database
 
 ## Key parts of the app
+
+Actions are in src/actions.
+
+All react components are in src/components
+
+Reducers are in src/reducers
+
+CSS for all components is kept in src/styles
