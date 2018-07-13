@@ -31,17 +31,21 @@ https://github.com/thinkful-ei21/james-capstone-server
     -React 
     -Redux for state management
     -Redux form for validation
+    -jwt for client validation
 
     Server:
     -Express and Node.js
     -MongoDB for database
+    -bcryptjs
 
 ## Key parts of the app
 
-Actions are in src/actions.
+Actions: In src/actions
 
-All react components are in src/components
+Components: In src/components
 
-Reducers are in src/reducers
+Reducers: In src/reducers
+
+Store: Contains all reducers in a combine reducer (in store.js)
 
 CSS for all components is kept in src/styles
