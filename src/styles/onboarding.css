@@ -1,7 +1,36 @@
+/* .onboard-container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+} */
 .onboard-section {
     background-color: white;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
+
+.onboard-ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    align-items: center;
+}
+.onboard-ul li {
+    margin: 15px 0;
+    /* padding-right: 20; */
+}
+
+.intro-p {
+    margin: 5px 0;
+}
+
+.onboard-stories-header {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
