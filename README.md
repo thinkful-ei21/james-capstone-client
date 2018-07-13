@@ -7,3 +7,6 @@ Future development plans:
 - Allow users to filter by genre when searching for movies.
 - Allow users to search the movie database by Actor, Director and other meta-data.
 - Allow users to sort and filter movies within lists by genre.
+
+
+Deployed Version: https://james-moviesurfer-client.herokuapp.com/
