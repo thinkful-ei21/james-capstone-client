@@ -9,7 +9,7 @@ import {
     CREATE_LIST_SUCCESS,
     CREATE_LIST_ERROR
 } from '../actions/add';
-import { CLEAR_SEARCH_STATE } from '../actions/search';
+import { CLEAR_STATE } from '../actions/search';
 
 const initialState = {
     lists: [],
@@ -20,7 +20,6 @@ const initialState = {
 };
 
 export const moviesReducer = (state = initialState, action) => {
-    // console.log(state, action);
     if (action.type === FETCH_MOVIES_REQUEST) {
         return {
             ...state,
@@ -43,7 +42,7 @@ export const moviesReducer = (state = initialState, action) => {
             movies: []
         };
     }
-    if (action.type === CLEAR_SEARCH_STATE) {
+    if (action.type === CLEAR_STATE) {
         return {
             ...state,
             movies: []

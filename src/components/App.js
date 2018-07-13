@@ -11,34 +11,38 @@ import headerBar from './header-bar';
 import expandedList from './expanded-list';
 
 class App extends React.Component {
-    // componentDidUpdate(prevProps) {
-    //     if (!prevProps.loggedIn && this.props.loggedIn) {
-    //         this.startPeriodicRefresh();
-    //     }
-    //     if (prevProps.loggedIn && !this.props.loggedIn) {
-    //         this.stopPeriodicRefresh();
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        if (!prevProps.loggedIn && this.props.loggedIn) {
+            this.startPeriodicRefresh();
+        }
+        if (prevProps.loggedIn && !this.props.loggedIn) {
+            this.stopPeriodicRefresh();
+        }
+        // console.log('redirecting');
+        // console.log(this.props.loggedIn);
+        // if (this.props.hasAuthToken) {
+        //     <Redirect to="/dashboard" />;
+        // }
+    }
 
-    // componentWillMount() {
-    //     console.log('starting now');
-    //     this.stopPeriodicRefresh();
-    // }
+    componentWillMount() {
+        this.stopPeriodicRefresh();
+    }
 
-    // startPeriodicRefresh() {
-    //     this.refreshInterval = setInterval(
-    //         () => this.props.dispatch(refreshAuthToken()),
-    //         1 * 60 * 1000
-    //     );
-    // }
+    startPeriodicRefresh() {
+        this.refreshInterval = setInterval(
+            () => this.props.dispatch(refreshAuthToken()),
+            15 * 60 * 1000
+        );
+    }
 
-    // stopPeriodicRefresh() {
-    //     if (!this.refreshInterval) {
-    //         return;
-    //     }
+    stopPeriodicRefresh() {
+        if (!this.refreshInterval) {
+            return;
+        }
 
-    //     clearInterval(this.refreshInterval);
-    // }
+        clearInterval(this.refreshInterval);
+    }
 
     render() {
         return (

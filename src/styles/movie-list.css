@@ -1,4 +1,4 @@
-.movie-item > li {
+.movie-item > ul {
     list-style: none;
-    display: inline-block;
+    display: inline;
 }

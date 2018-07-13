@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
 import '../styles/lists.css';
 import { fetchProtectedData } from '../actions/protected-data';
+import { clearState } from '../actions/search';
 
 class Lists extends React.Component {
     submitList(e) {
@@ -13,18 +14,12 @@ class Lists extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
+    componentWillUnmount() {
+        this.props.dispatch(clearState());
+    }
+
     render() {
         const lists = this.props.lists.map((list, index) => {
-            // const movies = list.movies;
-
-            // const movieTitles = movies.forEach(movie => {
-            //     return movie.title;
-            // });
-
-            // path="/lists/:id"
-
-            // this.props.match.params.id
-
             const link = 'lists/' + list.id;
             return (
                 <Link to={link} key={index} name={list.title}>

@@ -17,19 +17,18 @@ class ExpandedList extends React.Component {
 
         const movies = movieList.map(movie => {
             return (
-                <li>
-                    {movie.title}
+                <li className="movie-item">
+                    <div>{movie.title}</div>
                     <div>{movie.year}</div>
-                    <div>
-                        <img src={movie.poster} />
-                    </div>
+
+                    <img src={movie.poster} alt="" />
                 </li>
             );
         });
         return (
             <main>
                 <h1>{this.props.title}</h1>
-                <ul>{movies}</ul>
+                <ul className="result-list">{movies}</ul>
             </main>
         );
     }

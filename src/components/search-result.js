@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMovies } from '../actions/movies';
 import '../styles/movie-list.css';
+import '../styles/search-result.css';
 import { addMovie } from '../actions/add';
-import { clearSearchState } from '../actions/search';
+import { clearState } from '../actions/search';
 
 class SearchResult extends React.Component {
     addMovie(e, movie) {
@@ -19,11 +19,11 @@ class SearchResult extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.dispatch(clearSearchState());
+        this.props.dispatch(clearState());
     }
 
     clearSearch() {
-        this.props.dispatch(clearSearchState());
+        this.props.dispatch(clearState());
     }
 
     render() {
@@ -42,20 +42,29 @@ class SearchResult extends React.Component {
                     key={index}
                     onSubmit={e => this.addMovie(e, movie)}
                 >
-                    <li>{movie.Title}</li>
-                    <img src={movie.Poster} alt="" />
+                    {/* <ul className="search-result"> */}
+                    <span>{movie.Title}</span>
+
+                    {/* <li> */}
+                    <img src={movie.Poster} alt="" width="200" />
+                    {/* </li> */}
+                    {/* <li> */}
                     <select name="listOption">{lists}</select>
+                    {/* </li> */}
+                    {/* <li> */}
                     <button className="add-movie" type="submit">
                         Add movie to List
                     </button>
+                    {/* </li> */}
+                    {/* </ul> */}
                 </form>
             );
         });
 
         return (
             <div>
-                <button onClick={() => this.clearSearch()}>Clear Search</button>
-                <ul>{movies}</ul>
+                {/* <button onClick={() => this.clearSearch()}>Clear Search</button> */}
+                <ul className="result-list">{movies}</ul>
             </div>
         );
     }

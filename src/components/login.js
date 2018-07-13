@@ -13,6 +13,13 @@ export class LoginForm extends React.Component {
             .then(() => this.props.history.push('/dashboard'));
     }
 
+    componentDidMount() {
+        // keep an eye on this, it might break
+        if (this.props.hasAuthToken) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
     render() {
         let error;
         if (this.props.error) {
@@ -72,6 +79,8 @@ export class LoginForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        hasAuthToken: state.auth.authToken !== null,
+        loggedIn: state.auth.currentUser !== null,
         error: state.auth.error
     };
 };

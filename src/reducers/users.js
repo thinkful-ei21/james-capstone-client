@@ -45,7 +45,7 @@ export const authReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            error: action.err
+            error: action.err.message
         };
     }
     return state;

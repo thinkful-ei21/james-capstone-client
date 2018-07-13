@@ -3,6 +3,7 @@ import {
     FETCH_PROTECTED_DATA_ERROR,
     FETCH_CURRENT_LIST_SUCCESS
 } from '../actions/protected-data';
+import { CLEAR_STATE } from '../actions/search';
 
 const initialState = {
     data: [],
@@ -30,6 +31,13 @@ export const protectedDataReducer = (state = initialState, action) => {
             ...state,
             currentList: action.moviesList,
             title: action.title
+        };
+    }
+    if (action.type === CLEAR_STATE) {
+        return {
+            ...state,
+            currentList: [],
+            title: ''
         };
     }
     return state;

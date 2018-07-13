@@ -1,4 +1,4 @@
-export const CLEAR_SEARCH_STATE = 'CLEAR_SEARCH_STATE';
-export const clearSearchState = () => ({
-    type: CLEAR_SEARCH_STATE
+export const CLEAR_STATE = 'CLEAR_STATE';
+export const clearState = () => ({
+    type: CLEAR_STATE
 });

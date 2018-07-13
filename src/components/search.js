@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchMovies } from '../actions/movies';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+import '../styles/search.css';
 
 class Search extends React.Component {
     onSubmit(event) {
@@ -13,21 +14,21 @@ class Search extends React.Component {
         event.target.reset();
     }
 
-    // onClear() {
-    //     console.log('cleared');
-    // }
-
     render() {
         return (
-            <form onSubmit={e => this.onSubmit(e)}>
-                <label htmlFor="search">Search</label>
-                <input
-                    type="text"
-                    name="search"
-                    placeholder="Which movie are you searching for?"
-                />
-                <button type="submit">Submit</button>
-                {/* <button onClick={() => this.onClear()}>Clear</button> */}
+            <form onSubmit={e => this.onSubmit(e)} className="search-form">
+                <div>
+                    <label htmlFor="search">Search</label>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Which TV show or movie are you searching for?"
+                    />
+                    {/* <button type="submit">Submit</button> */}
+                </div>
+                {/* <button type="submit">Submit</button> */}
             </form>
         );
     }

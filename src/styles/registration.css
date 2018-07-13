@@ -1,0 +1,37 @@
+.registration-form {
+    /* margin: 0 auto; */
+    /* border: 1px solid black; */
+    background: white;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid gray;
+    border-radius: 2px;
+    box-shadow: 5px 10px 10px #888888;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.registration-form > label, input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 60px;
+}
+
+.registration-form input {
+    margin: 10px 60px;
+    width: 200px;
+}
+
+.form-input {
+    margin: 20px 40px;
+}
+.registration-form label {
+    margin-top: 20px;
+}
+.reg-box {
+    display: flex;
+    justify-content: center;
+    background: #d3dad8;
+}
+/* .registration-form > input  */

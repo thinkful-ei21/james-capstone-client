@@ -3,7 +3,7 @@
 }
 nav, nav ul {
     margin-top: 0;
-    background-color: #455a64;
+    background-color: #112935;
 }
 nav ul li {
     list-style: none;
@@ -15,7 +15,7 @@ nav a {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 25px;
     text-decoration: none;
-    color: white
+    color: white;
 }
 
 .title {
@@ -34,7 +34,7 @@ nav h1 {
 
 
 .button {
-    background-color: #455a64;
+    background-color: #112935;
     color: white;
     padding: 1em 1.5em;
     text-decoration: none;
@@ -46,13 +46,9 @@ nav h1 {
     transition:.5s;
 }
 .button:hover {
-    background-color: #58717c
+    background-color: #1b4052
 }
 
 nav > ul > :last-child {
     float: right;
 }
-
-/* .header-button {
-    background: blue
-} */

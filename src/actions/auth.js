@@ -45,7 +45,7 @@ const storeAuthTokenInfo = (authToken, dispatch) => {
 export const login = (username, password, history) => dispatch => {
     dispatch(authRequest());
     // used to be /auth/login
-    return fetch(`${API_BASE_URL}/login`, {
+    return fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -75,7 +75,7 @@ export const login = (username, password, history) => dispatch => {
         });
 };
 
-export const refreshAuthToken = (dispatch, getState) => {
+export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/auth/refresh`, {
@@ -88,6 +88,7 @@ export const refreshAuthToken = (dispatch, getState) => {
         .then(res => res.json())
         .then(({ authToken }) => storeAuthTokenInfo(authToken, dispatch))
         .catch(err => {
+            console.log(err);
             dispatch(authError(err));
             dispatch(clearAuth());
             clearAuthToken(authToken);
