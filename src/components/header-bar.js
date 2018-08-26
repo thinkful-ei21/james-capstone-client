@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage.js';
-import '../styles/header-bar.css';
 
 class HeaderBar extends React.Component {
     logOut() {

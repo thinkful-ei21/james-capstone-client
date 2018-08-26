@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
-import '../styles/lists.css';
 import { fetchProtectedData } from '../actions/protected-data';
 import { clearState } from '../actions/search';
 

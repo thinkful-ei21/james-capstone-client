@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../styles/movie-list.css';
-import '../styles/search-result.css';
 import { addMovie } from '../actions/add';
 import { clearState } from '../actions/search';
 

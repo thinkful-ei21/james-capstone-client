@@ -9,7 +9,6 @@ import {
     passwordsMatch
 } from './validators';
 import { registerUser } from '../../actions/users';
-import '../../styles/registration.css';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {

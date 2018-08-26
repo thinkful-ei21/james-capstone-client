@@ -4,7 +4,6 @@ import Input from './input';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 import Welcome from './welcome';
-import '../styles/login.css';
 import Onboarding from './onboarding';
 
 export class LoginForm extends React.Component {

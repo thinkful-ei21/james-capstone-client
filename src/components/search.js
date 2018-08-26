@@ -2,7 +2,6 @@ import React from 'react';
 import { fetchMovies } from '../actions/movies';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import '../styles/search.css';
 
 class Search extends React.Component {
     onSubmit(event) {

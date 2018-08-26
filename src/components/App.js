@@ -43,14 +43,14 @@ class App extends React.Component {
         return (
             <section>
                 <Router>
-                    <div>
+                    <React.Fragment>
                         <Route exact path="/" component={LoginForm} />
                         <Route exact path="/register" component={RegistrationForm} />
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/lists" component={headerBar} />
                         <Route exact path="/lists" component={Lists} />
                         <Route exact path="/lists/:id" component={expandedList} />
-                    </div>
+                    </React.Fragment>
                 </Router>
             </section>
         );
