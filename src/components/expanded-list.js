@@ -17,7 +17,7 @@ class ExpandedList extends React.Component {
 
         const movies = movieList.map(movie => {
             return (
-                <li className="movie-item">
+                <li>
                     <div>{movie.title}</div>
                     <div>{movie.year}</div>
 
@@ -28,7 +28,7 @@ class ExpandedList extends React.Component {
         return (
             <main>
                 <h1>{this.props.title}</h1>
-                <ul className="result-list">{movies}</ul>
+                <ul>{movies}</ul>
             </main>
         );
     }

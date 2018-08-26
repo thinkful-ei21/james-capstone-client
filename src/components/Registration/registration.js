@@ -28,7 +28,6 @@ class RegistrationForm extends React.Component {
             <div>
                 <form
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
-                    className="registration-form"
                 >
                     <Field
                         name="username"
