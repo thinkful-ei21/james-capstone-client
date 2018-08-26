@@ -25,25 +25,11 @@ class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <div className="reg-box">
+            <div>
                 <form
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                     className="registration-form"
                 >
-                    <Field
-                        name="firstName"
-                        type="text"
-                        component={Input}
-                        label="First Name"
-                        validate={[required]}
-                    />
-                    <Field
-                        name="lastName"
-                        type="text"
-                        component={Input}
-                        label="Last Name"
-                        validate={[required]}
-                    />
                     <Field
                         name="username"
                         type="text"
