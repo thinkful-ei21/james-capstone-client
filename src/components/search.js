@@ -25,9 +25,7 @@ class Search extends React.Component {
                         name="search"
                         placeholder="Which TV show or movie are you searching for?"
                     />
-                    {/* <button type="submit">Submit</button> */}
                 </div>
-                {/* <button type="submit">Submit</button> */}
             </form>
         );
     }

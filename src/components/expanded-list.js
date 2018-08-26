@@ -7,7 +7,7 @@ class ExpandedList extends React.Component {
     }
 
     fetchMoviesFromList() {
-        const listId = this.props.match.params.id;
+        // const listId = this.props.match.params.id;
     }
 
     render() {
