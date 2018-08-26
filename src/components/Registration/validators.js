@@ -2,10 +2,6 @@ export const required = value => {
     return value ? undefined : 'Required';
 };
 
-// export const isNotEmpty = value => {
-//     return value.trim() !== '' ? undefined : 'Cannot be empty';
-// };
-
 export const atLeastEight = value => {
     return value.length >= 8 ? undefined : 'Must be at least 8 Characters';
 };
