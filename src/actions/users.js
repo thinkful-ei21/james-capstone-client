@@ -3,22 +3,6 @@ import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 import { login } from './auth';
 
-// export const REGISTER_USER_REQUEST = 'REGISTER_USER_REQUEST';
-// export const registerUserRequest = () => ({
-//     type: REGISTER_USER_REQUEST
-// });
-
-// export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
-// export const registerUserSuccess = () => ({
-//     type: REGISTER_USER_SUCCESS
-// });
-
-// export const REGISTER_USER_ERROR = 'REGISTER_USER_ERROR';
-// export const registerUserError = err => ({
-//     type: REGISTER_USER_ERROR,
-//     err
-// });
-
 export const registerUser = user => dispatch => {
     // dispatch(registerUser());
     return fetch(`${API_BASE_URL}/users`, {
