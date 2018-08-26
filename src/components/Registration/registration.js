@@ -12,8 +12,8 @@ import { registerUser } from '../../actions/users';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
-        const { username, password, firstName, lastName, email } = values;
-        const user = { username, password, firstName, lastName, email };
+        const { username, password, email } = values;
+        const user = { username, password, email };
         return (
             this.props
                 .dispatch(registerUser(user))
