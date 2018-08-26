@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCurrentList } from '../actions/protected-data';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
@@ -9,7 +8,6 @@ class ExpandedList extends React.Component {
 
     fetchMoviesFromList() {
         const listId = this.props.match.params.id;
-        this.props.dispatch(fetchCurrentList(listId));
     }
 
     render() {

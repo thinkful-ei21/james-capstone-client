@@ -4,11 +4,10 @@ import requiresLogin from './requires-login';
 import HeaderBar from './header-bar';
 import Search from './search';
 import SearchResult from './search-result';
-import { fetchProtectedData } from '../actions/protected-data';
 
 class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        
     }
 
     render() {

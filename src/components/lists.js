@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
-import { fetchProtectedData } from '../actions/protected-data';
 import { clearState } from '../actions/search';
 
 class Lists extends React.Component {
@@ -10,7 +9,6 @@ class Lists extends React.Component {
         e.preventDefault();
         const listTitle = e.target.newList.value;
         this.props.dispatch(createList(listTitle));
-        this.props.dispatch(fetchProtectedData());
     }
 
     componentWillUnmount() {
@@ -29,7 +27,7 @@ class Lists extends React.Component {
 
         return (
             <section>
-                <div className="list-input">
+                <div>
                     <form onSubmit={e => this.submitList(e)}>
                         <label htmlFor="">Create list:</label>
                         <input type="text" name="newList" />
