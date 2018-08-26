@@ -63,6 +63,8 @@ export class LoginForm extends React.Component {
                         </li>
                         <li className="login">
                             <button
+                                // disables the button when it has not been touched\
+                                // and when it is submitting
                                 disabled={this.props.pristine || this.props.submitting}
                             >
                                 Log in
