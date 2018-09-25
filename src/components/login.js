@@ -30,17 +30,15 @@ export class LoginForm extends React.Component {
         }
 
         return (
-            <div className="form-container">
+            <main>
                 <form
                     className="login-form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
-                    <ul className="login-inputs">
-                        <li className="login">
+                
                             {error}
                             <label htmlFor="username">Username</label>
-                        </li>
-                        <li className="">
+
                             <Field
                                 component={Input}
                                 type="text"
@@ -48,11 +46,9 @@ export class LoginForm extends React.Component {
                                 id="username"
                                 // validate={[required, nonEmpty]}
                             />
-                        </li>
-                        <li className="login">
+
                             <label htmlFor="password">Password</label>
-                        </li>
-                        <li className="login">
+
                             <Field
                                 component={Input}
                                 type="password"
@@ -60,8 +56,8 @@ export class LoginForm extends React.Component {
                                 id="password"
                                 // validate={[required, nonEmpty]}
                             />
-                        </li>
-                        <li className="login">
+
+
                             <button
                                 // disables the button when it has not been touched\
                                 // and when it is submitting
@@ -69,11 +65,12 @@ export class LoginForm extends React.Component {
                             >
                                 Log in
                             </button>
-                        </li>
-                    </ul>
+
+                    
                 </form>
+
                 <Welcome />
-            </div>
+            </main>
         );
     }
 }
