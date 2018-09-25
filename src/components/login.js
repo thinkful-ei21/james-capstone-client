@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import Input from './input';
+import Input from './Input';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 import Welcome from './welcome';
@@ -35,7 +35,7 @@ export class LoginForm extends React.Component {
                     className="login-form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
-                
+
                             {error}
                             <label htmlFor="username">Username</label>
 
