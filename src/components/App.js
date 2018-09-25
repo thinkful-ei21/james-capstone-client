@@ -1,5 +1,5 @@
 import React from 'react';
-import RegistrationForm from './Registration/registration';
+import RegistrationForm from './RegistrationForm';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import Input from '../input';
+import Input from './input';
 import {
     required,
     atLeastEight,
@@ -8,7 +8,7 @@ import {
     emailTooLong,
     passwordsMatch
 } from './validators';
-import { registerUser } from '../../actions/users';
+import { registerUser } from '../actions/users';
 
 class RegistrationForm extends React.Component {
     onSubmit(values) {
