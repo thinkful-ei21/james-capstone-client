@@ -10,6 +10,8 @@ import Dashboard from './dashboard';
 import headerBar from './header-bar';
 import expandedList from './expanded-list';
 
+import styles from './styles/app.module.css';
+
 class App extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
@@ -41,7 +43,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className={styles.section}>
                 <Router>
                     <React.Fragment>
                         <Route exact path="/" component={LoginForm} />
