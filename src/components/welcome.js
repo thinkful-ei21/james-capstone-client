@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class Welcome extends React.Component {
     render() {
         return (
-            <main>
+            <section>
                 
                 <h2>Welcome to Movie surfer!</h2>
                 
@@ -14,7 +14,7 @@ export default class Welcome extends React.Component {
                 <Link to="/register">
                     Sign Up!
                 </Link>
-            </main>
+            </section>
         );
     }
 }

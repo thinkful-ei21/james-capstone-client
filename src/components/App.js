@@ -50,7 +50,7 @@ class App extends React.Component {
 
                     <Route exact path="/" component={LoginForm} />
                     <Route exact path="/" component={Welcome} />
-                    <Route exact path="/register" component={RegistrationForm} />
+                    <Route exact path="/" component={RegistrationForm} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/lists" component={Nav} />
                     <Route exact path="/lists" component={Lists} />

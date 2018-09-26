@@ -4,6 +4,8 @@ import Input from './input';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 
+import loginStyles from './styles/login.css'
+
 export class LoginForm extends React.Component {
     onSubmit(values) {
         this.props
@@ -29,8 +31,9 @@ export class LoginForm extends React.Component {
         }
 
         return (
-            <header>
+            <header className={loginStyles.header}>
                 <form
+                    className={loginStyles.form}
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
     
@@ -54,6 +57,7 @@ export class LoginForm extends React.Component {
                 <button 
                 // disables the button when it has not been touched
                 // and when it is submitting
+                className={loginStyles.button}
                 disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
