@@ -25,7 +25,6 @@ class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <div>
                 <form
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
@@ -59,9 +58,8 @@ class RegistrationForm extends React.Component {
                         label="Confirm Password"
                         validate={[required, atLeastEight, emailTooLong, passwordsMatch]}
                     />
-                    <button type="submit">Register</button>
+                    <button type="submit">Sign up</button>
                 </form>
-            </div>
         );
     }
 }

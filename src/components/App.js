@@ -10,7 +10,7 @@ import Dashboard from './dashboard';
 import Nav from './Nav';
 import expandedList from './expanded-list';
 
-import styles from './styles/app.module.css';
+// import styles from './styles/app.module.css';
 import Welcome from './welcome';
 
 class App extends React.Component {
