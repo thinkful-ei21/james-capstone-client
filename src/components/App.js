@@ -45,7 +45,7 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <section className={styles.body}>
+                <main className={styles.body}>
                     
                         <Route exact path="/" component={LoginForm} />
                         <Route exact path="/" component={Welcome} />
@@ -55,7 +55,7 @@ class App extends React.Component {
                         <Route exact path="/lists" component={Lists} />
                         <Route exact path="/lists/:id" component={expandedList} />
                         
-                </section>
+                </main>
             </Router>
         );
     }
