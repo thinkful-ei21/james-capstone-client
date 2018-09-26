@@ -11,6 +11,7 @@ import headerBar from './header-bar';
 import expandedList from './expanded-list';
 
 import styles from './styles/app.module.css';
+import Welcome from './welcome';
 
 class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -47,6 +48,7 @@ class App extends React.Component {
                 <section className={styles.body}>
                     
                         <Route exact path="/" component={LoginForm} />
+                        <Route exact path="/" component={Welcome} />
                         <Route exact path="/register" component={RegistrationForm} />
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/lists" component={headerBar} />
