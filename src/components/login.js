@@ -3,7 +3,6 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
-import Welcome from './welcome';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -68,8 +67,6 @@ export class LoginForm extends React.Component {
 
                     
                 </form>
-
-                <Welcome />
             </main>
         );
     }
