@@ -16,16 +16,14 @@ class Search extends React.Component {
     render() {
         return (
             <form onSubmit={e => this.onSubmit(e)} className="search-form">
-                <div>
-                    <label htmlFor="search">Search</label>
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        name="search"
-                        placeholder="Which TV show or movie are you searching for?"
-                    />
-                </div>
+                
+                <label htmlFor="search">Search</label>        
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Which TV show or movie are you searching for?"
+                />
+                
             </form>
         );
     }

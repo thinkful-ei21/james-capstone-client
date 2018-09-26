@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import { clearAuth } from '../actions/auth';
-import { clearAuthToken } from '../local-storage.js';
+import { clearAuthToken } from '../local-storage';
 
-class HeaderBar extends React.Component {
+class Nav extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(HeaderBar);
+export default connect(mapStateToProps)(Nav);
