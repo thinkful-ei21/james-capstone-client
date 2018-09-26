@@ -22,52 +22,45 @@ export class LoginForm extends React.Component {
         let error;
         if (this.props.error) {
             error = (
-                <div className="form-error" aria-live="polite">
+                <div aria-live="polite">
                     {this.props.error}
                 </div>
             );
         }
 
         return (
-            <main>
+            <header>
                 <form
-                    className="login-form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
                 >
+    
+                {error}
+                <Field
+                    component={Input}
+                    type="text"
+                    label="Username"
+                    name="username"
+                    id="username"
+                />
+                
+                <Field
+                    component={Input}
+                    type="password"
+                    label="Password"
+                    name="password"
+                    id="password"
+                />
 
-                            {error}
-                            <label htmlFor="username">Username</label>
-
-                            <Field
-                                component={Input}
-                                type="text"
-                                name="username"
-                                id="username"
-                                // validate={[required, nonEmpty]}
-                            />
-
-                            <label htmlFor="password">Password</label>
-
-                            <Field
-                                component={Input}
-                                type="password"
-                                name="password"
-                                id="password"
-                                // validate={[required, nonEmpty]}
-                            />
-
-
-                            <button
-                                // disables the button when it has not been touched\
-                                // and when it is submitting
-                                disabled={this.props.pristine || this.props.submitting}
-                            >
-                                Log in
-                            </button>
+                <button 
+                // disables the button when it has not been touched
+                // and when it is submitting
+                disabled={this.props.pristine || this.props.submitting}>
+                    Log in
+                </button>
 
                     
                 </form>
-            </main>
+            </header>
         );
     }
 }
