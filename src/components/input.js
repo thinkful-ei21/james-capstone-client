@@ -31,7 +31,7 @@ export default class Input extends React.Component {
         }
 
         return (
-            <div className={styles.container}>
+            <div>
                 <label htmlFor={this.props.input.name}>
                     {this.props.label}
                     {error}

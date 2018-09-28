@@ -1,15 +1,18 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import Input from './input';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 
 import loginStyles from './styles/login.css'
 
 export class LoginForm extends React.Component {
-    onSubmit(values) {
+    submit(e, word) {
+        const username = e.target.username.value;
+        const password = e.target.password.value;       
+        e.preventDefault();
+
         this.props
-            .dispatch(login(values.username.toLowerCase(), values.password))
+            .dispatch(login({ username, password })) 
             .then(() => this.props.history.push('/dashboard'));
     }
 
@@ -34,33 +37,24 @@ export class LoginForm extends React.Component {
             <header className={loginStyles.header}>
                 <form
                     className={loginStyles.form}
-                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                    onSubmit={(e) => this.submit(e)}
                 >
     
-                {error}
-                <Field
-                    component={Input}
-                    type="text"
-                    label="Username"
-                    name="username"
-                    id="username"
-                    className={loginStyles.inputDiv}
-                />
-                    <Field
-                        component={Input}
-                        type="password"
-                        label="Password"
-                        name="password"
-                        id="password"
-                    />
+                    {error}
 
-                <button 
-                // disables the button when it has not been touched
-                // and when it is submitting
-                className={loginStyles.button}
-                disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" />
+
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" />
+
+                    <button 
+                    // disables the button when it has not been touched
+                    // and when it is submitting
+                    className={loginStyles.button}
+                    >
+                        Log in
+                    </button>
 
      
                 </form>
