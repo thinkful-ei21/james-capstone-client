@@ -11,8 +11,8 @@ export default class LandingPage extends React.Component {
                 
         
                 <p>Don't have an account yet?</p>
-                <Link to="/login">Login</Link>
-                <Link to="/register">
+                <Link to="/login" className={styles.button}>Login</Link>
+                <Link to="/register" className={styles.button}>
                     Sign Up!
                 </Link>
             </div>
