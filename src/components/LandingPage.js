@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Welcome extends React.Component {
+export default class LandingPage extends React.Component {
     render() {
         return (
             <section>
@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
                 
         
                 <p>Don't have an account yet?</p>
-                
+                <Link to="/login">Login</Link>
                 <Link to="/register">
                     Sign Up!
                 </Link>

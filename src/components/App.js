@@ -11,7 +11,7 @@ import Nav from './Nav';
 import expandedList from './expanded-list';
 
 // import styles from './styles/app.module.css';
-import Welcome from './welcome';
+import LandingPage from './LandingPage';
 
 class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -48,9 +48,9 @@ class App extends React.Component {
                 
                 <React.Fragment>
 
-                    <Route exact path="/" component={LoginForm} />
-                    <Route exact path="/" component={Welcome} />
-                    <Route exact path="/" component={RegistrationForm} />
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/login" component={LoginForm} />
+                    <Route exact path="/register" component={RegistrationForm} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/lists" component={Nav} />
                     <Route exact path="/lists" component={Lists} />

@@ -62,7 +62,7 @@ export class LoginForm extends React.Component {
                     Log in
                 </button>
 
-                    
+     
                 </form>
             </header>
         );
