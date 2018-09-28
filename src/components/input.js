@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles/input.module.css';
 
 export default class Input extends React.Component {
 
@@ -30,7 +31,7 @@ export default class Input extends React.Component {
         }
 
         return (
-            <div>
+            <div className={styles.container}>
                 <label htmlFor={this.props.input.name}>
                     {this.props.label}
                     {error}

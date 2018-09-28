@@ -44,15 +44,15 @@ export class LoginForm extends React.Component {
                     label="Username"
                     name="username"
                     id="username"
+                    className={loginStyles.inputDiv}
                 />
-                
-                <Field
-                    component={Input}
-                    type="password"
-                    label="Password"
-                    name="password"
-                    id="password"
-                />
+                    <Field
+                        component={Input}
+                        type="password"
+                        label="Password"
+                        name="password"
+                        id="password"
+                    />
 
                 <button 
                 // disables the button when it has not been touched

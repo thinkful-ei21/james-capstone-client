@@ -1,5 +1,13 @@
 #root {
-    /* background: red;
-    background-image: linear-gradient(red, blue);
-    min-height: 800px; */
+    background: rgb(20, 125, 173);
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
 }

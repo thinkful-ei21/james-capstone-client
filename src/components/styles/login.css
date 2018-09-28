@@ -1,23 +1,22 @@
 .header {
-    background-color: rgb(4, 94, 97);
-    flex: 0 0 100%;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    margin: 200px 0;
 }
 
 .form {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    /* padding: 30px; */
-    height: 80px;
+    flex-direction: column;
+    
 }
 
 .button {
-    /* font-size: 0.5em; */
     border-radius: 3px;
     padding: 10px;
-    /* margin: 25px 0; */
+}
+
+.inputDiv {
+    display: block;
 }
