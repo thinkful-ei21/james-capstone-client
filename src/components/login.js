@@ -12,7 +12,7 @@ export class LoginForm extends React.Component {
         e.preventDefault();
 
         this.props
-            .dispatch(login({ username, password })) 
+            .dispatch(login(username, password)) 
             .then(() => this.props.history.push('/dashboard'));
     }
 

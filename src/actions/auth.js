@@ -41,7 +41,7 @@ const storeAuthTokenInfo = (authToken, dispatch) => {
     saveAuthToken(authToken);
 };
 // passing in history from this.props.history
-export const login = ({ username, password}, history) => dispatch => {
+export const login = (username, password, history) => dispatch => {
 
     dispatch(authRequest());
     // used to be /auth/login
