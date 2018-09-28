@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './styles/landing-page.module.css';
 
 export default class LandingPage extends React.Component {
     render() {
         return (
-            <section>
+            <div className={styles.div}>
                 
                 <h2>Welcome to Movie surfer!</h2>
                 
@@ -14,7 +15,7 @@ export default class LandingPage extends React.Component {
                 <Link to="/register">
                     Sign Up!
                 </Link>
-            </section>
+            </div>
         );
     }
 }

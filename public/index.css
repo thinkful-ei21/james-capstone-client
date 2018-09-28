@@ -1,4 +1,5 @@
 #root {
-    display: flex;
-    flex-flow: wrap;
+    /* background: red;
+    background-image: linear-gradient(red, blue);
+    min-height: 800px; */
 }

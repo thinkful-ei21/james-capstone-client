@@ -10,8 +10,8 @@ import Dashboard from './dashboard';
 import Nav from './Nav';
 import expandedList from './expanded-list';
 
-// import styles from './styles/app.module.css';
-import LandingPage from './LandingPage';
+import styles from'./styles/app.module.css';
+import LandingPage from './landing-page';
 
 class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -46,7 +46,7 @@ class App extends React.Component {
         return (
             <Router>
                 
-                <React.Fragment>
+                <div className={styles.div}>
 
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/login" component={LoginForm} />
@@ -56,7 +56,7 @@ class App extends React.Component {
                     <Route exact path="/lists" component={Lists} />
                     <Route exact path="/lists/:id" component={expandedList} />
                         
-                </React.Fragment>
+                </div>
                 
             </Router>
         );
