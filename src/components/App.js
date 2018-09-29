@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { refreshAuthToken } from '../actions/auth';
-import LoginForm from './login';
+import LoginForm from './LoginForm';
 import Lists from './lists';
 import Dashboard from './dashboard';
 import Nav from './Nav';

@@ -3,7 +3,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 
-import loginStyles from './styles/login.css'
+import loginStyles from './styles/login.module.css'
 
 export class LoginForm extends React.Component {
     submit(e, word) {

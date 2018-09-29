@@ -5,4 +5,14 @@
     border-radius: 25px;
     padding: 10px 30px;
     margin: 20px 0;
+    font-size: 1.2em;
+    width: 150px;
+    transition: width 0.5s;
+}
+
+.button:hover {
+    background: orange;
+    width: 200px;
+    color: white;
+    text-decoration: none;
 }
