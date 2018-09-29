@@ -7,14 +7,15 @@ export default class LandingPage extends React.Component {
         return (
             <div className={styles.div}>
                 
-                <h2>Welcome to Movie surfer!</h2>
+                <h2 className={styles.title}>Welcome to Movie surfer!</h2>
                 
         
                 <p>Don't have an account yet?</p>
-                <Link to="/login" className={styles.button}>Login</Link>
                 <Link to="/register" className={styles.button}>
                     Sign Up!
                 </Link>
+                
+                <Link to="/login" className={styles.button}>Login</Link>
             </div>
         );
     }

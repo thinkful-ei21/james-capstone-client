@@ -11,6 +11,10 @@
     text-align: center;
 }
 
+.title {
+    margin-top: 50px;
+}
+
 .button {
     text-decoration: none;
     color: white;

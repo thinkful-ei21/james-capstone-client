@@ -34,7 +34,10 @@ export class LoginForm extends React.Component {
         }
 
         return (
-            <header className={loginStyles.header}>
+
+            <main className={loginStyles.container}>
+                <h1 className={loginStyles.header}>Log In</h1>
+
                 <form
                     className={loginStyles.form}
                     onSubmit={(e) => this.submit(e)}
@@ -43,22 +46,24 @@ export class LoginForm extends React.Component {
                     {error}
 
                     <label htmlFor="username">Username</label>
-                    <input type="text" name="username" />
+                    <input type="text" name="username" className={loginStyles.input}/>
+                    
+                    
 
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" />
+                    <input type="password" name="password" className={loginStyles.input}/>
 
                     <button 
                     // disables the button when it has not been touched
                     // and when it is submitting
                     className={loginStyles.button}
                     >
-                        Log in
+                        Login
                     </button>
 
      
                 </form>
-            </header>
+            </main>
         );
     }
 }
