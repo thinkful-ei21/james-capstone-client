@@ -45,12 +45,12 @@ export class LoginForm extends React.Component {
     
                     {error}
 
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username" className={loginStyles.label}>Username</label>
                     <input type="text" name="username" className={loginStyles.input}/>
                     
                     
 
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className={loginStyles.label}>Password</label>
                     <input type="password" name="password" className={loginStyles.input}/>
 
                     <button 

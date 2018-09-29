@@ -24,12 +24,24 @@
     border: none;
     font-family: 'Dosis', sans-serif;
     font-size: 0.8em;
+    width: 150px;
+}
+
+.button:hover {
+    background: darkblue;
+    color: white;
+    text-decoration: none;
+}
+
+.label {
+    color: black;
 }
 
 .input {
-    margin-top: 10px;
     margin-bottom: 30px;
     width: 200px;
-    height: 25px;
+    height: 30px;
     border-radius: 15px;
+    padding: 10px;
+    color: black;
 }

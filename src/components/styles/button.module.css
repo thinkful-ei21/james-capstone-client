@@ -7,12 +7,11 @@
     margin: 20px 0;
     font-size: 1.2em;
     width: 150px;
-    transition: width 0.5s;
+    transition: 0.25s;
 }
 
 .button:hover {
-    background: orange;
-    width: 200px;
+    background: darkblue;
     color: white;
     text-decoration: none;
 }
