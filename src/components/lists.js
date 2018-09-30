@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
 import { clearState } from '../actions/search';
 
+import styles from './styles/list.module.css';
+
 class Lists extends React.Component {
     submitList(e) {
         e.preventDefault();
@@ -11,11 +13,16 @@ class Lists extends React.Component {
         this.props.dispatch(createList(listTitle));
     }
 
+    componentDidMount() {
+
+    }
+
     componentWillUnmount() {
         this.props.dispatch(clearState());
     }
 
     render() {
+
         const lists = this.props.lists.map((list, index) => {
             const link = 'lists/' + list.id;
             return (
@@ -25,16 +32,24 @@ class Lists extends React.Component {
             );
         });
 
+        const { loading, error } = this.props;
+
+        if (loading) {
+            return <p>{loading}</p>;
+        }
+        
+        
         return (
             <section>
                 <div>
+                    <p className={styles.error}>{error}</p>
                     <form onSubmit={e => this.submitList(e)}>
                         <label htmlFor="">Create list:</label>
                         <input type="text" name="newList" />
                         <button>Create</button>
                     </form>
                     <p>Lists</p>
-                    <ul className="movie-lists">{lists}</ul>
+                    <ul>{lists}</ul>
                 </div>
             </section>
         );
@@ -42,9 +57,13 @@ class Lists extends React.Component {
 }
 
 const mapStateToProps = state => {
+    
     return {
-        lists: state.listData.data
+        loading: state.movies.loading,
+        error: state.movies.error,
+        lists: state.movies.lists
     };
+
 };
 
 export default connect(mapStateToProps)(Lists);

@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import Input from './input';
 import {
     required,
+    atLeastThree,
     atLeastEight,
     isValidEmail,
     emailTooLong,
@@ -33,7 +34,7 @@ class RegistrationForm extends React.Component {
                         type="text"
                         component={Input}
                         label="Username"
-                        validate={[required, atLeastEight]}
+                        validate={[required, atLeastThree]}
                     />
                     <Field
                         name="email"

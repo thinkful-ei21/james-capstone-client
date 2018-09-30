@@ -66,7 +66,7 @@ export const moviesReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            error: action.err,
+            error: action.err.message,
             movies: [...state.movies]
         };
     }

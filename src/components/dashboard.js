@@ -15,7 +15,9 @@ class Dashboard extends React.Component {
         return (
             <section className={styles.container}>
                 <Nav />
+
                 <Search />
+                
                 <SearchResult />
             </section>
         );

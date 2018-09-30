@@ -2,6 +2,10 @@ export const required = value => {
     return value ? undefined : 'Required';
 };
 
+export const atLeastThree = value => {
+    return value.length >= 3 ? undefined : 'Must be at least 3 Characters';
+};
+
 export const atLeastEight = value => {
     return value.length >= 8 ? undefined : 'Must be at least 8 Characters';
 };

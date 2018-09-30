@@ -11,6 +11,7 @@ class SearchResult extends React.Component {
         const year = movie.Year;
         const title = movie.Title;
         const poster = movie.Poster;
+
         // Here you're going to dispatch the function
         // that adds the movie to the list.
         this.props.dispatch(addMovie(movieId, listId, year, title, poster));
@@ -25,6 +26,7 @@ class SearchResult extends React.Component {
     }
 
     render() {
+
         const lists = this.props.lists.map((list, index) => {
             return (
                 <option key={index} value={list.id}>
@@ -71,7 +73,7 @@ const mapStateToProps = state => {
     return {
         movies: state.movies.movies,
         error: state.movies.error,
-        lists: state.listData.data
+        lists: state.movies.lists
     };
 };
 
