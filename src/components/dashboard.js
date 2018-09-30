@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import Nav from './Nav';
 import Search from './search';
 import SearchResult from './search-result';
+import styles from './styles/dashboard.module.css';
 
 class Dashboard extends React.Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className={styles.container}>
                 <Nav />
                 <Search />
                 <SearchResult />
