@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import RegisterButton from './RegisterButton';
 import LoginButton from './LoginButton'
 import styles from './styles/landing-page.module.css';

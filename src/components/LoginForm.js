@@ -1,9 +1,10 @@
 import React from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
+import { reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
 import { connect } from 'react-redux';
 
 import loginStyles from './styles/login.module.css'
+import buttonStyles from './styles/button.module.css';
 
 export class LoginForm extends React.Component {
     submit(e, word) {
@@ -12,8 +13,13 @@ export class LoginForm extends React.Component {
         e.preventDefault();
 
         this.props
-            .dispatch(login(username, password)) 
+            .dispatch(login(username, password))
             .then(() => this.props.history.push('/dashboard'));
+    }
+
+    goBack(){
+        // goes back to the homepage
+        this.props.history.push('/');
     }
 
     componentDidMount() {
@@ -36,6 +42,7 @@ export class LoginForm extends React.Component {
         return (
 
             <main className={loginStyles.container}>
+
                 <h1 className={loginStyles.header}>Log In</h1>
 
                 <form
@@ -63,6 +70,7 @@ export class LoginForm extends React.Component {
 
      
                 </form>
+                <button className={buttonStyles.back} onClick={() => this.goBack()}>Back</button>
             </main>
         );
     }

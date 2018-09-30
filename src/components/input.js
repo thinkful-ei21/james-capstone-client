@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './styles/input.module.css';
 
 export default class Input extends React.Component {
 
