@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 
 import styles from './styles/search.module.css';
+import buttonStyles from './styles/button.module.css';
 
 class Search extends React.Component {
     onSubmit(event) {
@@ -16,9 +17,11 @@ class Search extends React.Component {
     }
 
     render() {
+        const { error } = this.props;
+
         return (
             <form onSubmit={e => this.onSubmit(e)} className={styles.container}>
-                
+                <p className={styles.error}>{error}</p>
                 <label htmlFor="search"></label>        
                 <input
                     type="text"
@@ -26,15 +29,16 @@ class Search extends React.Component {
                     placeholder="Which TV show or movie are you searching for?"
                     className={styles.searchBar}
                 />
+                <button className={buttonStyles.button}>Search</button>
                 
             </form>
         );
     }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-
+        error: state.movies.error 
     };
 }
 

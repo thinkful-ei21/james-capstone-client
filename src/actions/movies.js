@@ -17,10 +17,10 @@ export const fetchMoviesError = err => ({
     err
 });
 
-export const fetchMovies = search => dispatch => {
-    if (search) {
+export const fetchMovies = searchTerm => dispatch => {
+    if (searchTerm) {
         dispatch(fetchMoviesRequest());
-        return fetch(`${API_BASE_URL}/search?title=${search}`, {
+        return fetch(`${API_BASE_URL}/search?title=${searchTerm}`, {
             method: 'GET'
         })
             .then(res => {
@@ -31,6 +31,9 @@ export const fetchMovies = search => dispatch => {
             })
             .then(res => res.json())
             .then(data => dispatch(fetchMoviesSuccess(data.Search)))
-            .catch(err => dispatch(fetchMoviesError(err)));
+            .catch(err => {
+                // console.log(err);
+                dispatch(fetchMoviesError(err));
+            });
     }
 };

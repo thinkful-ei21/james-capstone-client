@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
+        console.log('fetching movies');
         this.fetchMoviesFromList();
     }
 
@@ -11,9 +12,11 @@ class ExpandedList extends React.Component {
     }
 
     render() {
-        const movieList = this.props.movies;
+        // const movieList = this.props.movies;
 
-        const movies = movieList.map(movie => {
+        const { movies } = this.props;
+
+        movies.map(movie => {
             return (
                 <li>
                     <div>{movie.title}</div>
@@ -35,7 +38,7 @@ class ExpandedList extends React.Component {
 const mapStateToProps = state => {
     return {
         lists: state.listData.data,
-        movies: state.listData.currentList,
+        movies: state.movies.currentList,
         title: state.listData.title
     };
 };

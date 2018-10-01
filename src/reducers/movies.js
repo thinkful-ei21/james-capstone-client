@@ -35,10 +35,11 @@ export const moviesReducer = (state = initialState, action) => {
         };
     }
     if (action.type === FETCH_MOVIE_ERROR) {
+        console.log(action.err);
         return {
             ...state,
             loading: false,
-            error: action.err,
+            error: 'No results found',
             movies: []
         };
     }
