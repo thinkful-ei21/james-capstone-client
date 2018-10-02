@@ -20,7 +20,7 @@ const initialState = {
     //movieError instead
     error: null,
     movies: [],
-    currentList: []
+    currentList: null
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -86,7 +86,7 @@ export const moviesReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            currentList: [action.list]
+            currentList: action.list.movies
         }
     }
     if (action.type === FETCH_FULL_LIST_ERROR) {

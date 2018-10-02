@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 export const SEARCH_MOVIES_REQUEST = 'SEARCH_MOVIES_REQUEST';
 export const fetchMoviesRequest = () => ({
@@ -96,5 +97,17 @@ export const fetchFullList = (listId) => (dispatch, getState) => {
     dispatch(fetchFullListRequest());
 
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/`)
+    return fetch(`${API_BASE_URL}/lists/${listId}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(data => {
+            dispatch(fetchFullListSuccess(data))
+        })
+        .catch(err => dispatch(fetchFullListError(err)));
 };
