@@ -12,24 +12,25 @@ class ExpandedList extends React.Component {
     }
 
     render() {
-        // const movieList = this.props.movies;
 
         const { movies } = this.props;
+        if (movies) {
 
-        movies.map(movie => {
-            return (
-                <li>
+            this.movies = this.props.movies.map(movie => {
+                return (
+                    <li>
                     <div>{movie.title}</div>
                     <div>{movie.year}</div>
+                        <img src={movie.poster} alt="" />
+                    </li>
+                );
+            });
+        }
 
-                    <img src={movie.poster} alt="" />
-                </li>
-            );
-        });
         return (
             <main>
                 <h1>{this.props.title}</h1>
-                <ul>{movies}</ul>
+                <ul>{this.movies}</ul>
             </main>
         );
     }

@@ -17,6 +17,7 @@ class Lists extends React.Component {
 
     componentDidUpdate() {
         const { lists } = this.props;
+        console.log(lists);
     }
 
     componentDidMount() {
@@ -28,7 +29,6 @@ class Lists extends React.Component {
     }
 
     render() {
-
         const { loading, error, lists } = this.props;
 
         if (lists) {
