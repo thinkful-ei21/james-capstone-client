@@ -1,0 +1,36 @@
+.nav {
+    background: red;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    font-size: 1em;
+}
+
+.button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    padding: 14px 25px;
+    color: white;
+}
+
+.logout {
+    /* position: fixed; */
+    right: 0;
+    color: white;
+    padding: 14px 25px;
+}
+
+.button:hover {
+    background: mediumblue;
+    text-decoration: none;
+    color: white;
+}
+
+.logout:hover {
+    background: mediumblue;
+    text-decoration: none;
+    color: white;
+}

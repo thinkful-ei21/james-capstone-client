@@ -29,7 +29,7 @@ class Search extends React.Component {
                     placeholder="Which TV show or movie are you searching for?"
                     className={styles.searchBar}
                 />
-                <button className={buttonStyles.button}>Search</button>
+                <button className={styles.button}>Search</button>
                 
             </form>
         );

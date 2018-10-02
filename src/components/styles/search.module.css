@@ -6,12 +6,26 @@
 }
 
 .searchBar {
-    width: 55%;
+    margin: 40px;
+    width: 60%;
     height: 40px;
     padding: 10px;
+    text-align: center;
 }
 
 .error {
     color: rgb(233, 3, 3);
     font-size: 1.2em;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: rgb(233, 3, 3);
+    border-radius: 25px;
+    padding: 10px 30px;
+    margin: 20px 0;
+    font-size: 1.2em;
+    width: 150px;
 }

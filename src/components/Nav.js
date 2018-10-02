@@ -5,6 +5,8 @@ import { Redirect } from 'react-router';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
 
+import styles from './styles/nav.module.css';
+
 class Nav extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
@@ -18,16 +20,16 @@ class Nav extends React.Component {
         // Only renders the log out button if we're logged in
         let logOutButton;
         if (this.props.loggedIn) {
-            logOutButton = <button onClick={() => this.logOut()}>Log Out</button>;
+            logOutButton = <a onClick={() => this.logOut()} className={styles.logout}>Log Out</a>;
         }
 
         return (
-            <nav>
+            <nav className={styles.nav}>
                 
                     
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard" className={styles.button}>Dashboard</Link>
                
-                <Link to="/lists">Lists</Link>
+                <Link to="/lists" className={styles.button}>Favorites</Link>
                   
                 
                 {logOutButton}
