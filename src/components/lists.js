@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createList } from '../actions/add';
+import { fetchLists } from '../actions/movies';
 import { clearState } from '../actions/search';
 
 import styles from './styles/list.module.css';
@@ -14,7 +15,7 @@ class Lists extends React.Component {
     }
 
     componentDidMount() {
-
+        this.props.dispatch(fetchLists());
     }
 
     componentWillUnmount() {
@@ -23,16 +24,20 @@ class Lists extends React.Component {
 
     render() {
 
-        const lists = this.props.lists.map((list, index) => {
-            const link = 'lists/' + list.id;
-            return (
-                <Link to={link} key={index} name={list.title}>
-                    <button key={index}>{list.title}</button>
-                </Link>
-            );
-        });
-
-        const { loading, error } = this.props;
+        const { loading, error, lists } = this.props;
+        
+        let movieLists;
+        if (lists) {
+            // console.log(lists);
+                const movieLists = this.props.lists.map((list, index) => {
+                    const link = 'lists/' + list.id;
+                    return (
+                        <Link to={link} key={index} name={list.title}>
+                            <button key={index}>{list.title}</button>
+                        </Link>
+                    );
+                });
+        }
 
         if (loading) {
             return <p>{loading}</p>;
@@ -48,8 +53,8 @@ class Lists extends React.Component {
                         <input type="text" name="newList" />
                         <button>Create</button>
                     </form>
-                    <p>Lists</p>
-                    <ul>{lists}</ul>
+                    <h3>Lists</h3>
+                    <ul>{movieLists}</ul>
                 </div>
             </section>
         );
