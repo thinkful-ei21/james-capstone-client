@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addMovie } from '../actions/add';
 import { clearState } from '../actions/search';
+
+import styles from './styles/search-result.module.css';
 
 class SearchResult extends React.Component {
     addMovie(e, movie) {
@@ -37,34 +40,33 @@ class SearchResult extends React.Component {
 
         const movies = this.props.movies.map((movie, index) => {
             return (
-                <form
-                    className="movie-item"
-                    key={index}
-                    onSubmit={e => this.addMovie(e, movie)}
-                >
-                    {/* <ul className="search-result"> */}
-                    <span>{movie.Title}</span>
+                <React.Fragment>
+                    <form
+                        className={styles.form}
+                        key={index}
+                        onSubmit={e => this.addMovie(e, movie)}
+                    >
 
-                    {/* <li> */}
-                    <img src={movie.Poster} alt="" width="200" />
-                    {/* </li> */}
-                    {/* <li> */}
-                    <select name="listOption">{lists}</select>
-                    {/* </li> */}
-                    {/* <li> */}
-                    <button className="add-movie" type="submit">
-                        Add movie to List
-                    </button>
-                    {/* </li> */}
-                    {/* </ul> */}
-                </form>
+                        <h3 className={styles.movieTitle}>{movie.Title}</h3>
+
+                        <img src={movie.Poster} alt="" width="200" />
+                        
+                        <select name="listOption" className={styles.select}>{lists}</select>
+
+                        <button className={styles.button} type="submit">
+                            Add movie to favorites
+                        </button>
+
+
+                    </form>
+
+                </React.Fragment>
             );
         });
 
         return (
-            <div>
-                {/* <button onClick={() => this.clearSearch()}>Clear Search</button> */}
-                <ul className="result-list">{movies}</ul>
+            <div className={styles.container}>
+                {movies}
             </div>
         );
     }

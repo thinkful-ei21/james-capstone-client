@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    /* flex-basis: 20%; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form {
+    /* width: 30%; */
+    margin: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+
+.button {
+    width: fit-content;
+    padding: 10px 15px;
+    height: initial;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: rgb(233, 3, 3);
+    border-radius: 25px;
+    padding: 10px 30px;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.select {
+    width: 150px;
+    padding: 10px 15px;
+    height: initial;
+    border: none;
+    /* background: rgb(233, 3, 3); */
+    border-radius: 25px;
+    padding: 10px 30px;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.button:hover {
+    background-color: darkblue;
+}
+
+.movieTitle {
+    font-size: 1.5em;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media only screen and (max-width: 400px) {
+    .form {
+        width: 100%;
+    }
+}
