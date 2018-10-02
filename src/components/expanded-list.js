@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchFullList } from '../actions/movies';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
         console.log('fetching movies');
-        this.fetchMoviesFromList();
-    }
 
-    fetchMoviesFromList() {
-        // const listId = this.props.match.params.id;
+        // this grabs the list id from the url
+        const listId = this.props.match.params.id;
+
+        this.props.dispatch(fetchFullList(listId));
     }
 
     render() {

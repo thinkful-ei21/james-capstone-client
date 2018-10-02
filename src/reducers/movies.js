@@ -3,7 +3,8 @@ import {
     SEARCH_MOVIES_SUCCESS,
     SEARCH_MOVIE_ERROR,
     FETCH_FULL_LIST_REQUEST,
-    FETCH_FULL_LIST_SUCCESS
+    FETCH_FULL_LIST_SUCCESS,
+    FETCH_FULL_LIST_ERROR
 } from '../actions/movies';
 
 import {
@@ -85,8 +86,15 @@ export const moviesReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            currentList: []
+            currentList: [action.list]
         }
+    }
+    if (action.type === FETCH_FULL_LIST_ERROR) {
+        return {
+            ...state,
+            loading: false,
+            error: action.err
+        };
     }
     return state;
 };
