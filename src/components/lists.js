@@ -8,10 +8,15 @@ import { clearState } from '../actions/search';
 import styles from './styles/list.module.css';
 
 class Lists extends React.Component {
+
     submitList(e) {
         e.preventDefault();
         const listTitle = e.target.newList.value;
         this.props.dispatch(createList(listTitle));
+    }
+
+    componentDidUpdate() {
+        const { lists } = this.props;
     }
 
     componentDidMount() {
@@ -25,18 +30,16 @@ class Lists extends React.Component {
     render() {
 
         const { loading, error, lists } = this.props;
-        
-        let movieLists;
+
         if (lists) {
-            // console.log(lists);
-                const movieLists = this.props.lists.map((list, index) => {
-                    const link = 'lists/' + list.id;
-                    return (
-                        <Link to={link} key={index} name={list.title}>
-                            <button key={index}>{list.title}</button>
-                        </Link>
-                    );
-                });
+            this.lists = this.props.lists.map((list, index) => {
+                const link = 'lists/' + list.id;
+                return (
+                    <Link to={link} key={index} name={list.title}>
+                        <button key={index}>{list.title}</button>
+                    </Link>
+                );
+            });        
         }
 
         if (loading) {
@@ -54,7 +57,7 @@ class Lists extends React.Component {
                         <button>Create</button>
                     </form>
                     <h3>Lists</h3>
-                    <ul>{movieLists}</ul>
+                    {this.lists}
                 </div>
             </section>
         );

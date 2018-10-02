@@ -55,7 +55,23 @@ export const fetchListsError = err => ({
     err
 });
 
-export const fetchLists = () => dispatch => {
+export const fetchLists = () => (dispatch, getState) => {
+    console.log('fetching lists from db');
+    const authToken = getState().auth.authToken;
+    
     dispatch(fetchListsRequest());
-    // return fetch
+    return fetch(`${API_BASE_URL}/lists`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            dispatch(fetchListsSuccess(data))
+        })
+        .catch(err => {
+            dispatch(fetchListsError(err))
+        });
 }
