@@ -92,8 +92,9 @@ export const fetchFullListError = err => ({
     err
 });
 
-export const fetchFullList = () => (dispatch, getState) => {
+export const fetchFullList = (listId) => (dispatch, getState) => {
     dispatch(fetchFullListRequest());
 
     const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/`)
 };
