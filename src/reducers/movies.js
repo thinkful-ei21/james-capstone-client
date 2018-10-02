@@ -1,7 +1,9 @@
 import {
-    FETCH_MOVIES_REQUEST,
-    FETCH_MOVIES_SUCCESS,
-    FETCH_MOVIE_ERROR
+    SEARCH_MOVIES_REQUEST,
+    SEARCH_MOVIES_SUCCESS,
+    SEARCH_MOVIE_ERROR,
+    FETCH_FULL_LIST_REQUEST,
+    FETCH_FULL_LIST_SUCCESS
 } from '../actions/movies';
 
 import {
@@ -16,17 +18,18 @@ const initialState = {
     loading: false,
     //movieError instead
     error: null,
-    movies: []
+    movies: [],
+    currentList: []
 };
 
 export const moviesReducer = (state = initialState, action) => {
-    if (action.type === FETCH_MOVIES_REQUEST) {
+    if (action.type === SEARCH_MOVIES_REQUEST) {
         return {
             ...state,
             loading: true
         };
     }
-    if (action.type === FETCH_MOVIES_SUCCESS) {
+    if (action.type === SEARCH_MOVIES_SUCCESS) {
         return {
             ...state,
             loading: false,
@@ -34,7 +37,7 @@ export const moviesReducer = (state = initialState, action) => {
             movies: action.movies
         };
     }
-    if (action.type === FETCH_MOVIE_ERROR) {
+    if (action.type === SEARCH_MOVIE_ERROR) {
         console.log(action.err);
         return {
             ...state,
@@ -71,6 +74,19 @@ export const moviesReducer = (state = initialState, action) => {
             error: action.err.message,
             movies: [...state.movies]
         };
-    };
+    }
+    if (action.type === FETCH_FULL_LIST_REQUEST) {
+        return {
+            ...state,
+            loading: true,
+        };
+    }
+    if (action.type === FETCH_FULL_LIST_SUCCESS) {
+        return {
+            ...state,
+            loading: false,
+            currentList: []
+        }
+    }
     return state;
 };

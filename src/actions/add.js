@@ -22,6 +22,7 @@ export const addMovie = (movieId, listId, year, title, poster) => (
     dispatch,
     getState
 ) => {
+
     dispatch(addMovieRequest());
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/lists`, {

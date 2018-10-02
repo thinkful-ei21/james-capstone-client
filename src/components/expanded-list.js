@@ -38,9 +38,7 @@ class ExpandedList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        lists: state.listData.data,
         movies: state.movies.currentList,
-        title: state.listData.title
     };
 };
 

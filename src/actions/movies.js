@@ -1,19 +1,19 @@
 import { API_BASE_URL } from '../config';
 
-export const FETCH_MOVIES_REQUEST = 'FETCH_MOVIES_REQUEST';
+export const SEARCH_MOVIES_REQUEST = 'SEARCH_MOVIES_REQUEST';
 export const fetchMoviesRequest = () => ({
-    type: FETCH_MOVIES_REQUEST
+    type: SEARCH_MOVIES_REQUEST
 });
 
-export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
+export const SEARCH_MOVIES_SUCCESS = 'SEARCH_MOVIES_SUCCESS';
 export const fetchMoviesSuccess = movies => ({
-    type: FETCH_MOVIES_SUCCESS,
+    type: SEARCH_MOVIES_SUCCESS,
     movies
 });
 
-export const FETCH_MOVIE_ERROR = 'FETCH_MOVIE_ERROR';
+export const SEARCH_MOVIE_ERROR = 'SEARCH_MOVIE_ERROR';
 export const fetchMoviesError = err => ({
-    type: FETCH_MOVIE_ERROR,
+    type: SEARCH_MOVIE_ERROR,
     err
 });
 
@@ -32,7 +32,6 @@ export const fetchMovies = searchTerm => dispatch => {
             .then(res => res.json())
             .then(data => dispatch(fetchMoviesSuccess(data.Search)))
             .catch(err => {
-                // console.log(err);
                 dispatch(fetchMoviesError(err));
             });
     }
@@ -56,7 +55,6 @@ export const fetchListsError = err => ({
 });
 
 export const fetchLists = () => (dispatch, getState) => {
-    console.log('fetching lists from db');
     const authToken = getState().auth.authToken;
     
     dispatch(fetchListsRequest());
@@ -75,3 +73,27 @@ export const fetchLists = () => (dispatch, getState) => {
             dispatch(fetchListsError(err))
         });
 }
+
+export const FETCH_FULL_LIST_REQUEST = 'FETCH_FULL_LIST_REQUEST';
+export const fetchFullListRequest = () => ({
+    type: FETCH_FULL_LIST_REQUEST
+});
+
+
+export const FETCH_FULL_LIST_SUCCESS = 'FETCH_FULL_LIST_SUCCESS';
+export const fetchFullListSuccess = list => ({
+    type: FETCH_FULL_LIST_SUCCESS,
+    list
+});
+
+export const FETCH_FULL_LIST_ERROR = 'FETCH_FULL_LIST_ERROR';
+export const fetchFullListError = err => ({
+    type: FETCH_FULL_LIST_ERROR,
+    err
+});
+
+export const fetchFullList = () => (dispatch, getState) => {
+    dispatch(fetchFullListRequest());
+
+    const authToken = getState().auth.authToken;
+};

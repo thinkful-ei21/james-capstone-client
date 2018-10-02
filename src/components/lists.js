@@ -17,7 +17,6 @@ class Lists extends React.Component {
 
     componentDidUpdate() {
         const { lists } = this.props;
-        console.log(lists);
     }
 
     componentDidMount() {
@@ -32,7 +31,7 @@ class Lists extends React.Component {
         const { loading, error, lists } = this.props;
 
         if (lists) {
-            this.lists = this.props.lists.map((list, index) => {
+            this.lists = lists.map((list, index) => {
                 const link = 'lists/' + list.id;
                 return (
                     <Link to={link} key={index} name={list.title}>
