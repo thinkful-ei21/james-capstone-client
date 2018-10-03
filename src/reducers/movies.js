@@ -4,7 +4,10 @@ import {
     SEARCH_MOVIE_ERROR,
     FETCH_FULL_LIST_REQUEST,
     FETCH_FULL_LIST_SUCCESS,
-    FETCH_FULL_LIST_ERROR
+    FETCH_FULL_LIST_ERROR,
+    FETCH_LISTS_REQUEST,
+    FETCH_LISTS_SUCCESS,
+    FETCH_LISTS_ERROR
 } from '../actions/movies';
 
 import {
@@ -17,7 +20,6 @@ import { CLEAR_STATE } from '../actions/search';
 const initialState = {
     lists: [],
     loading: false,
-    //movieError instead
     error: null,
     movies: [],
     currentList: null
@@ -35,23 +37,15 @@ export const moviesReducer = (state = initialState, action) => {
             ...state,
             loading: false,
             error: null,
-            movies: action.movies
+            movies: [...action.movies]
         };
     }
     if (action.type === SEARCH_MOVIE_ERROR) {
-        console.log(action.err);
         return {
             ...state,
             loading: false,
             error: 'No results found',
             movies: []
-        };
-    }
-    if (action.type === CLEAR_STATE) {
-        return {
-            ...state,
-            movies: [],
-            error: null,
         };
     }
     if (action.type === CREATE_LIST_REQUEST) {
@@ -75,6 +69,26 @@ export const moviesReducer = (state = initialState, action) => {
             error: action.err.message,
             movies: [...state.movies]
         };
+    }
+    if (action.type === FETCH_LISTS_REQUEST) {
+        return {
+            ...state,
+            loading: true,
+        }
+    }
+    if (action.type === FETCH_LISTS_SUCCESS) {
+        return {
+            ...state,
+            loading: false,
+            lists: action.lists
+        }
+    }
+    if (action.type === FETCH_LISTS_ERROR) {
+        return {
+            ...state,
+            loading: false,
+            error: action.err
+        }
     }
     if (action.type === FETCH_FULL_LIST_REQUEST) {
         return {

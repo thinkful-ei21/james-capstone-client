@@ -5,10 +5,11 @@ import Nav from './Nav';
 import Search from './search';
 import SearchResult from './search-result';
 import styles from './styles/dashboard.module.css';
+import { fetchLists } from '../actions/movies';
 
 class Dashboard extends React.Component {
     componentDidMount() {
-        
+        this.props.dispatch(fetchLists());
     }
 
     render() {

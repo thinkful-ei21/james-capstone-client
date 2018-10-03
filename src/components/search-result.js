@@ -21,52 +21,51 @@ class SearchResult extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.dispatch(clearState());
-    }
-
-    clearSearch() {
-        this.props.dispatch(clearState());
+        // this.props.dispatch(clearState());
     }
 
     render() {
+        const { lists, movies } = this.props;
 
-        const lists = this.props.lists.map((list, index) => {
-            return (
-                <option key={index} value={list.id}>
-                    {list.title}
-                </option>
-            );
-        });
-
-        const movies = this.props.movies.map((movie, index) => {
-            return (
-                <React.Fragment>
-                    <form
-                        className={styles.form}
-                        key={index}
-                        onSubmit={e => this.addMovie(e, movie)}
-                    >
-
-                        <h3 className={styles.movieTitle}>{movie.Title}</h3>
-
-                        <img src={movie.Poster} alt="" width="200" />
-                        
-                        <select name="listOption" className={styles.select}>{lists}</select>
-
-                        <button className={styles.button} type="submit">
-                            Add movie to favorites
-                        </button>
-
-
-                    </form>
-
-                </React.Fragment>
-            );
-        });
+        if (lists) {
+            this.lists = lists.map((list, index) => {
+                return (
+                    <option key={index} value={list.id}>
+                        {list.title}
+                    </option>
+                );
+            });
+        }
+        
+        if (movies) {
+            this.movies = movies.map((movie, index) => {
+                    return (
+                        <form
+                            className={styles.form}
+                            key={index}
+                            onSubmit={e => this.addMovie(e, movie)}
+                            >
+    
+                            <h3 className={styles.movieTitle}>{movie.Title}</h3>
+    
+                            <img src={movie.Poster} alt="" width="200" />
+                            
+                            <select name="listOption" className={styles.select}>{this.lists}</select>
+    
+                            <button className={styles.button} type="submit">
+                                Add movie to favorites
+                            </button>
+    
+    
+                        </form>
+                    );
+                });
+        }
+        
 
         return (
             <div className={styles.container}>
-                {movies}
+                {this.movies}
             </div>
         );
     }

@@ -31,7 +31,9 @@ export const fetchMovies = searchTerm => dispatch => {
                 return res;
             })
             .then(res => res.json())
-            .then(data => dispatch(fetchMoviesSuccess(data.Search)))
+            .then(data => {
+                dispatch(fetchMoviesSuccess(data.Search));
+            })
             .catch(err => {
                 dispatch(fetchMoviesError(err));
             });

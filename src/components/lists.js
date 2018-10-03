@@ -15,10 +15,6 @@ class Lists extends React.Component {
         this.props.dispatch(createList(listTitle));
     }
 
-    componentDidUpdate() {
-        const { lists } = this.props;
-    }
-
     componentDidMount() {
         this.props.dispatch(fetchLists());
     }
@@ -29,6 +25,7 @@ class Lists extends React.Component {
 
     render() {
         const { loading, error, lists } = this.props;
+
 
         if (lists) {
             this.lists = lists.map((list, index) => {

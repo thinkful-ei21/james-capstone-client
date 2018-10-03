@@ -4,8 +4,6 @@ import { fetchFullList } from '../actions/movies';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
-        console.log('fetching movies');
-
         // this grabs the list id from the url
         const listId = this.props.match.params.id;
 
@@ -19,7 +17,7 @@ class ExpandedList extends React.Component {
 
             this.movies = this.props.movies.map((movie, key) => {
                 return (
-                    <div>
+                    <div key={key}>
 
                         <p>{movie.title}</p>
                         <p>{movie.year}</p>
