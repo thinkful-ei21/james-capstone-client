@@ -26,7 +26,6 @@ class Lists extends React.Component {
     render() {
         const { loading, error, lists } = this.props;
 
-
         if (lists) {
             this.lists = lists.map((list, index) => {
                 const link = 'lists/' + list.id;
@@ -55,6 +54,8 @@ class Lists extends React.Component {
                     <h3>Lists</h3>
                     {this.lists}
                 </div>
+
+                <button onClick={() => this.setLoading()}>load</button>
             </section>
         );
     }
