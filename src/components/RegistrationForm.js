@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
 import { reduxForm, Field } from 'redux-form';
 import Input from './input';
 import {
@@ -25,6 +26,10 @@ class RegistrationForm extends React.Component {
     }
 
     render() {
+        if (this.props.loading) {
+            return <h1>Loading...</h1>
+        }
+
         return (
                 <form
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
@@ -64,6 +69,12 @@ class RegistrationForm extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    loading: state.auth.loading
+})
+
+RegistrationForm = connect(mapStateToProps)(RegistrationForm);
 
 export default reduxForm({
     form: 'registration'
