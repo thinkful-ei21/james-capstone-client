@@ -4,6 +4,7 @@ import { fetchFullList } from '../actions/movies';
 import { deleteList } from '../actions/lists';
 
 import buttonStyles from './styles/button.module.css';
+import { clearState } from '../actions/search';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
@@ -11,6 +12,10 @@ class ExpandedList extends React.Component {
         const listId = this.props.match.params.id;
 
         this.props.dispatch(fetchFullList(listId));
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(clearState());
     }
 
     handleDeleteClick() {
