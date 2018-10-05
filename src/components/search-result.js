@@ -21,7 +21,7 @@ class SearchResult extends React.Component {
     }
 
     componentWillUnmount() {
-        // this.props.dispatch(clearState());
+        this.props.dispatch(clearState());
     }
 
     render() {

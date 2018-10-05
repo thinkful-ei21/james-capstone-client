@@ -48,6 +48,12 @@ export const moviesReducer = (state = initialState, action) => {
             movies: []
         };
     }
+    if (action.type === CLEAR_STATE) {
+        return {
+            ...state,
+            movies: []
+        }
+    }
     if (action.type === CREATE_LIST_REQUEST) {
         return {
             ...state,
