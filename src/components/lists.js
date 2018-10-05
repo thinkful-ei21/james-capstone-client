@@ -55,7 +55,6 @@ class Lists extends React.Component {
                     {this.lists}
                 </div>
 
-                <button onClick={() => this.setLoading()}>load</button>
             </section>
         );
     }
