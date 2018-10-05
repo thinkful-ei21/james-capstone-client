@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 
 import styles from './styles/search.module.css';
-import buttonStyles from './styles/button.module.css';
 
 class Search extends React.Component {
     onSubmit(event) {

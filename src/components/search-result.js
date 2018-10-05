@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addMovie } from '../actions/add';
 import { clearState } from '../actions/search';
 
@@ -30,9 +29,18 @@ class SearchResult extends React.Component {
         if (lists) {
             this.lists = lists.map((list, index) => {
                 return (
-                    <option key={index} value={list.id}>
-                        {list.title}
-                    </option>
+                    <React.Fragment>
+
+                        <select className={styles.select} name="listOption">
+
+                            <option key={index} value={list.id}>
+                                {list.title}
+                            </option>
+                        </select>
+                        <button className={styles.button} type="submit">
+                            Add movie to favorites
+                        </button>
+                    </React.Fragment>
                 );
             });
         }
@@ -50,11 +58,11 @@ class SearchResult extends React.Component {
     
                             <img src={movie.Poster} alt="" width="200" />
                             
-                            <select name="listOption" className={styles.select}>{this.lists}</select>
-    
-                            <button className={styles.button} type="submit">
+                            {/* <select name="listOption" className={styles.select}>{this.lists}</select> */}
+                            {this.lists}
+                            {/* <button className={styles.button} type="submit">
                                 Add movie to favorites
-                            </button>
+                            </button> */}
     
     
                         </form>
