@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchFullList } from '../actions/movies';
+import { deleteList } from '../actions/lists';
+
+import buttonStyles from './styles/button.module.css';
 
 class ExpandedList extends React.Component {
     componentDidMount() {
@@ -8,6 +11,12 @@ class ExpandedList extends React.Component {
         const listId = this.props.match.params.id;
 
         this.props.dispatch(fetchFullList(listId));
+    }
+
+    handleDeleteClick() {
+        this.props.dispatch(deleteList(this.props.match.params.id));
+
+        this.props.history.push('/lists');
     }
 
     render() {
@@ -30,7 +39,8 @@ class ExpandedList extends React.Component {
 
         return (
             <main>
-                    {this.movies}
+                {this.movies}
+                <button className={buttonStyles.button} onClick={() => this.handleDeleteClick()}>Delete List</button>
             </main>
         );
     }
