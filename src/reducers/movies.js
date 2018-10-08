@@ -51,7 +51,8 @@ export const moviesReducer = (state = initialState, action) => {
     if (action.type === CLEAR_STATE) {
         return {
             ...state,
-            movies: []
+            movies: [],
+            currentList: null
         }
     }
     if (action.type === CREATE_LIST_REQUEST) {

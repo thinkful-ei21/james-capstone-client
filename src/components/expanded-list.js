@@ -7,6 +7,7 @@ import buttonStyles from './styles/button.module.css';
 import { clearState } from '../actions/search';
 
 class ExpandedList extends React.Component {
+
     componentDidMount() {
         // this grabs the list id from the url
         const listId = this.props.match.params.id;
@@ -31,21 +32,25 @@ class ExpandedList extends React.Component {
 
             this.movies = this.props.movies.map((movie, key) => {
                 return (
-                    <div key={key}>
+                        <div key={key}>
 
-                        <p>{movie.title}</p>
-                        <p>{movie.year}</p>
-                        <img src={movie.poster} alt="" />
-                    </div>
-
-                );
+                            <p>{movie.title}</p>
+                            <p>{movie.year}</p>
+                            <img src={movie.poster} alt="" width="275px" />
+                        </div>
+                    );
             });
         }
 
         return (
             <main>
                 {this.movies}
-                <button className={buttonStyles.button} onClick={() => this.handleDeleteClick()}>Delete List</button>
+                <button 
+                    className={buttonStyles.button} 
+                    onClick={() => this.handleDeleteClick()
+                }>
+                    Delete List
+                </button>
             </main>
         );
     }

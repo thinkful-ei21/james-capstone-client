@@ -15,7 +15,10 @@ class Dashboard extends React.Component {
     render() {
         return (
             <section className={styles.container}>
+                
                 <Nav />
+
+                <h1>Welcome {this.props.username}! </h1>
 
                 <Search />
                 
