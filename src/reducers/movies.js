@@ -21,6 +21,7 @@ const initialState = {
     lists: [],
     loading: false,
     error: null,
+    listError: null,
     movies: [],
     currentList: null
 };
@@ -51,6 +52,10 @@ export const moviesReducer = (state = initialState, action) => {
     if (action.type === CLEAR_STATE) {
         return {
             ...state,
+            lists: [],
+            loading: false,
+            error: null,
+            listError: null,
             movies: [],
             currentList: null
         }
@@ -73,7 +78,7 @@ export const moviesReducer = (state = initialState, action) => {
         return {
             ...state,
             loading: false,
-            error: action.err.message,
+            listError: action.err.message,
             movies: [...state.movies]
         };
     }

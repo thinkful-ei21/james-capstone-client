@@ -40,12 +40,16 @@ class Lists extends React.Component {
         if (loading) {
             return <p>{loading}</p>;
         }
+
+        if (error) {
+            this.error = <p className={styles.error}>{error}</p>;
+        }
         
         
         return (
             <section>
                 <div>
-                    <p className={styles.error}>{error}</p>
+                    {this.error}
                     <form onSubmit={e => this.submitList(e)}>
                         <label htmlFor="">Create list:</label>
                         <input type="text" name="newList" />
@@ -64,7 +68,7 @@ const mapStateToProps = state => {
     
     return {
         loading: state.movies.loading,
-        error: state.movies.error,
+        error: state.movies.listError,
         lists: state.movies.lists
     };
 
