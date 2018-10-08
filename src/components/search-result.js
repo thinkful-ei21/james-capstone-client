@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addMovie } from '../actions/add';
 import { clearState } from '../actions/search';
 
@@ -47,10 +48,11 @@ class SearchResult extends React.Component {
                             key={index}
                             onSubmit={e => this.addMovie(e, movie)}
                             >
-    
-                            <h3 className={styles.movieTitle}>{movie.Title}</h3>
-    
-                            <img src={movie.Poster} alt="" width="200" />
+                            <Link to={`/search/${movie.imdbID}`}>
+                                <h3 className={styles.movieTitle}>{movie.Title}</h3>
+
+                                <img src={movie.Poster} alt="" width="200" />
+                            </Link>
                             
                             <select name="listOption" className={styles.select}>{this.lists}</select>
                             
