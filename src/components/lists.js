@@ -17,6 +17,7 @@ class Lists extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(fetchLists());
+        console.log(this.props.lists);
     }
 
     componentWillUnmount() {
@@ -30,9 +31,17 @@ class Lists extends React.Component {
             this.lists = lists.map((list, index) => {
                 const link = 'lists/' + list.id;
                 return (
-                    <Link to={link} key={index} name={list.title}>
-                        <button key={index}>{list.title}</button>
-                    </Link>
+                    <div key={index} className={styles.list}>
+
+                        <Link to={link} key={index} name={list.title}>
+                            <h3 key={index}>{list.title}</h3>
+                        </Link>
+
+                        <p>{list.movies.length} movies</p>
+
+
+                    </div>
+                    
                 );
             });        
         }
@@ -56,6 +65,8 @@ class Lists extends React.Component {
                         <button>Create</button>
                     </form>
                     <h3>Lists</h3>
+                </div>
+                <div className={styles.container}>
                     {this.lists}
                 </div>
                 

@@ -2,3 +2,16 @@
     color: rgb(233, 3, 3);
     font-size: 1.2em;
 }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.list {
+    width: 250px;
+    border: 1px solid white;
+    margin: 10px 40px;
+}
