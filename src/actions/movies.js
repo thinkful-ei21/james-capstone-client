@@ -18,6 +18,34 @@ export const fetchMoviesError = err => ({
     err
 });
 
+export const GET_INFO_REQUEST = 'GET_INFO_REQUEST';
+export const getInfoRequest = () => ({
+    type: GET_INFO_REQUEST
+});
+
+export const GET_INFO_SUCCESS = 'GET_INFO_SUCCESS';
+export const getInfoSuccess = movie => ({
+    type: GET_INFO_SUCCESS,
+    movie
+});
+
+export const GET_INFO_ERROR = 'GET_INFO_ERROR';
+export const getInfoError = err => ({
+    type: GET_INFO_ERROR,
+    err
+});
+
+export const getInfo = (imdbId) => (dispatch, getState) => {
+
+    dispatch(getInfoRequest());
+    return fetch(`${API_BASE_URL}/info?imdbId=${imdbId}`)
+        .then(res => res.json())
+        .then(movie => {
+            dispatch(getInfoSuccess(movie))
+        })
+        .catch(err => dispatch(getInfoError));
+}
+
 export const fetchMovies = searchTerm => dispatch => {
     if (searchTerm) {
         dispatch(fetchMoviesRequest());

@@ -7,7 +7,9 @@ import {
     FETCH_FULL_LIST_ERROR,
     FETCH_LISTS_REQUEST,
     FETCH_LISTS_SUCCESS,
-    FETCH_LISTS_ERROR
+    FETCH_LISTS_ERROR,
+    GET_INFO_REQUEST,
+    GET_INFO_SUCCESS
 } from '../actions/movies';
 
 import {
@@ -23,7 +25,8 @@ const initialState = {
     error: null,
     listError: null,
     movies: [],
-    currentList: null
+    currentList: null,
+    movieInfo: {}
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -121,6 +124,19 @@ export const moviesReducer = (state = initialState, action) => {
             loading: false,
             error: action.err
         };
+    }
+    if (action.type === GET_INFO_REQUEST) {
+        return {
+            ...state,
+            loading: true
+        }
+    }
+    if (action.type === GET_INFO_SUCCESS) {
+        return {
+            ...state,
+            loading: false,
+            movieInfo: action.movie
+        }
     }
     return state;
 };

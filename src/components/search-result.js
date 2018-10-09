@@ -30,7 +30,7 @@ class SearchResult extends React.Component {
         if (lists) {
             this.lists = lists.map((list, index) => {
                 return (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
 
                             <option key={index} value={list.id}>
                                 {list.title}
