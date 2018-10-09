@@ -8,6 +8,7 @@ import LoginForm from './LoginForm';
 import Lists from './lists';
 import Dashboard from './dashboard';
 import Nav from './Nav';
+import MovieInfo from './MovieInfo';
 import expandedList from './expanded-list';
 
 import styles from'./styles/app.module.css';
@@ -53,6 +54,8 @@ class App extends React.Component {
                     <Route exact path="/register" component={RegistrationForm} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/lists" component={Nav} />
+                    <Route path="/search/:id" component={Nav} />
+                    <Route path="/search/:id" component={MovieInfo} />
                     <Route exact path="/lists" component={Lists} />
                     <Route exact path="/lists/:id" component={expandedList} />
                         
