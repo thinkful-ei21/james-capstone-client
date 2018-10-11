@@ -19,8 +19,6 @@ class RegistrationForm extends React.Component {
         return (
             this.props
                 .dispatch(registerUser(user))
-
-                // this.props.dispatch(login(username, password));
                 .then(() => this.props.history.push('/dashboard'))
         );
     }
